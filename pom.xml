@@ -19,9 +19,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.spigotmc</groupId>
-			<artifactId>spigot</artifactId>
-			<version>1.16.1-R0.1-SNAPSHOT</version>
+			<groupId>com.destroystokyo.paper</groupId>
+			<artifactId>paper</artifactId>
+			<version>1.16.4-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -47,7 +47,8 @@
 	<repositories>
 		<repository>
 			<id>civ-jenkins</id>
-			<url>https://repo.civclassic.com/repository/internal/</url>
+			<url>https://build.devotedmc.com/plugin/repository/everything/</url>
 		</repository>
 	</repositories>
+
 </project>
