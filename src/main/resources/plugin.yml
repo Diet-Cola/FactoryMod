@@ -4,6 +4,7 @@ author: Maxopoly, igotyou
 version: ${project.version}
 depend: [CivModCore]
 softdepend: [CivMenu, NameLayer, Citadel]
+api-version: 1.16
 commands:
     fm:
         permission: fm.public
@@ -45,4 +46,3 @@ permissions:
         default: true
     fm.op:
         default: op
-api-version: 1.13
