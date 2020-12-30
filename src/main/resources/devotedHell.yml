@@ -15,7 +15,7 @@ log_inventories: true
 force_include_default: true
 
 factories:
-  Basic Factory:
+  Basic_Factory:
     type: FCC
     name: Basic Factory
     setupcost:
@@ -23,15 +23,15 @@ factories:
         material: ENDER_EYE
         amount: 7
     recipes:
-    - Upgrade to Smelter
-    - Upgrade to Charcoal Burner
-    - Upgrade to Iron Armoury
-    - Upgrade to Iron Tools
-    - Upgrade to Aesthetics Factory
-    - Upgrade to Botanical Gardens
-    - Upgrade to Basic Cauldron
-    - Upgrade to Intermediate Factory
-    - Accidental Repair
+    - Upgrade_to_Smelter
+    - Upgrade_to_Charcoal_Burner
+    - Upgrade_to_Iron_Armoury
+    - Upgrade_to_Iron_Tools
+    - Upgrade_to_Aesthetics_Factory
+    - Upgrade_to_Botanical_Gardens
+    - Upgrade_to_Basic_Cauldron
+    - Upgrade_to_Intermediate_Factory
+    - Accidental_Repair
 
   #BASIC FACTORIES  
 
@@ -39,55 +39,55 @@ factories:
     type: FCCUPGRADE
     name: Smelter  
     recipes:
-     - Smelt into Nether Bricks
-     - Smelt into Cracked Nether Brick
-     - Smelt into Glass
-     - Accidental Repair
-  Charcoal Burner:
+     - Smelt_into_Nether Bricks
+     - Smelt_into_Cracked Nether Brick
+     - Smelt_into_Glass
+     - Accidental_Repair
+  Charcoal_Burner:
     type: FCCUPGRADE
     name: Charcoal Burner
     recipes:
-     - Burn Warped Stem
-     - Burn Crimson Stem
-     - Accidental Repair
-  Iron Armoury:
+     - Burn_Warped_Stem
+     - Burn_Crimson_Stem
+     - Accidental_Repair
+  Iron_Armoury:
     type: FCCUPGRADE
     name: Iron Armoury
     recipes:
-     - Craft Iron Helmets
-     - Craft Iron Chestplates
-     - Craft Iron Leggings
-     - Craft Iron Boots
-     - Accidental Repair
-  Iron Tools:
+     - Craft_Iron_Helmets
+     - Craft_Iron_Chestplates
+     - Craft_Iron_Leggings
+     - Craft_Iron_Boots
+     - Accidental_Repair
+  Iron_Tools:
     type: FCCUPGRADE
     name: Iron Tools
     recipes:
-     - Craft Iron Pickaxes
-     - Craft Iron Axes
-     - Craft Iron Shovels
-     - Craft Iron Swords
-     - Craft Iron Hoes
-     - Craft Shields
-     - Accidental Repair
-  Aesthetics Factory:
+     - Craft_Iron_Pickaxes
+     - Craft_Iron_Axes
+     - Craft_Iron_Shovels
+     - Craft_Iron_Swords
+     - Craft_Iron_Hoes
+     - Craft_Shields
+     - Accidental_Repair
+  Aesthetics_Factory:
     type: FCCUPGRADE
     name: Aesthetics Factory
     recipes:
      - Placeholder
-     - Accidental Repair
-  Botanical Gardens:
+     - Accidental_Repair
+  Botanical_Gardens:
     type: FCCUPGRADE
     name: Botanical Gardens
     recipes:
      - Placeholder
-     - Accidental Repair
-  Basic Cauldron:
+     - Accidental_Repair
+  Basic_Cauldron:
     type: FCCUPGRADE
     name: Basic Cauldron
     recipes:
      - Placeholder
-     - Accidental Repair  
+     - Accidental_Repair  
 
   #INTERMEDIATE FACTORIES
 
@@ -102,7 +102,7 @@ factories:
      - Upgrade to Compactor
      - Upgrade to Intermediate Cauldron
      - Upgrade to Expert Factory
-     - Accidental Repair
+     - Accidental_Repair
   Diamond Armoury:
     type: FCCUPGRADE
     name: Diamond Armoury
@@ -111,7 +111,7 @@ factories:
      - Craft Diamond Chestplates
      - Craft Diamond Leggings
      - Craft Diamond Boots
-     - Accidental Repair
+     - Accidental_Repair
   Diamond Tools:
     type: FCCUPGRADE
     name: Diamond Tools
@@ -121,7 +121,7 @@ factories:
      - Craft Diamond Shovels
      - Craft Diamond Swords
      - Craft Diamond Hoes
-     - Accidental Repair
+     - Accidental_Repair
   Ore Forge:
     type: FCCUPGRADE
     name: Ore Forge
@@ -130,7 +130,7 @@ factories:
      - Breakdown Redstone Ore
      - Breakdown Gold Ore
      - Breakdown Diamond Ore
-     - Accidental Repair
+     - Accidental_Repair
   Transportation Factory:
     type: FCCUPGRADE
     name: Transportation Factory
@@ -141,7 +141,7 @@ factories:
      - Forge Activator Rails
      - Forge Minecarts
      - Craft Saddles
-     - Accidental Repair
+     - Accidental_Repair
   Compactor:
     type: FCCUPGRADE
     name: Compactor
@@ -149,7 +149,7 @@ factories:
      - Craft Crates
      - Compress Items
      - Decompact Items
-     - Accidental Repair
+     - Accidental_Repair
   Intermediate Cauldron:
     type: FCCUPGRADE
     name: Intermediate Cauldron
@@ -158,7 +158,7 @@ factories:
         material: ENDER_EYE
     recipes:
      - Placeholder
-     - Accidental Repair  
+     - Accidental_Repair  
 
   #EXPERT FACTORIES
   
@@ -173,7 +173,7 @@ factories:
      - Upgrade to Netherite Tools
      - Upgrade to Bastion Factory
      - Upgrade to Expert Cauldron 
-     - Accidental Repair
+     - Accidental_Repair
   Netherite Armoury:
     type: FCCUPGRADE
     name: Netherite Armoury
@@ -185,7 +185,7 @@ factories:
      - Craft Netherite Chestplates
      - Craft Netherite Leggings
      - Craft Netherite Boots
-     - Accidental Repair
+     - Accidental_Repair
   Netherite Tools:
     type: FCCUPGRADE
     name: Netherite Tools
@@ -198,7 +198,7 @@ factories:
      - Craft Netherite Shovels
      - Craft Netherite Swords
      - Craft Netherite Hoes
-     - Accidental Repair
+     - Accidental_Repair
   Bastion Factory:
     type: FCCUPGRADE
     name: Bastion Factory
@@ -207,7 +207,7 @@ factories:
         material: ENDER_EYE
     recipes:
      - Placeholder
-     - Accidental Repair
+     - Accidental_Repair
   Expert Cauldron:
     type: FCCUPGRADE
     name: Expert Cauldron
@@ -216,7 +216,7 @@ factories:
         material: ENDER_EYE
     recipes:
      - Placeholder
-     - Accidental Repair
+     - Accidental_Repair
 
   #BASIC RECIPES
 
@@ -237,7 +237,7 @@ recipes:
         material: NETHER_STAR
         name: Coming Soon
         amount: 1
-  Smelt into Nether Bricks:
+  Smelt_into_Nether_Bricks:
     production_time: 8s
     name: Smelt into Nether Bricks
     type: PRODUCTION
@@ -246,22 +246,22 @@ recipes:
         material: NETHERRACK
         amount: 64
     output:
-      Nether bricks:
+      Nether_bricks:
         material: NETHER_BRICK
         amount: 96
-  Smelt into Cracked Nether Brick:
+  Smelt_into_Cracked_Nether_Brick:
     production_time: 8s
     name: Smelt into Cracked Nether Brick
     type: PRODUCTION
     input:
-      Nether Brick:
+      Nether_Brick:
         material: NETHER_BRICKS 
         amount: 64
     output:
-      Cracked Nether Brick:
+      Cracked_Nether_Brick:
         material: CRACKED_NETHER_BRICKS
         amount: 80
-  Smelt into Glass:
+  Smelt_into_Glass:
     production_time: 8s
     name: Smelt into Glass
     type: PRODUCTION
@@ -273,144 +273,144 @@ recipes:
       Glass:
         material: GLASS
         amount: 96
-  Burn Warped Stem:
+  Burn_Warped_Stem:
     production_time: 8s
     name: Burn Warped Stem
     type: PRODUCTION
     input:
-      Warped Stem:
+      Warped_Stem:
         material: WARPED_STEM
         amount: 64
     output:
       Charcoal:
         material: CHARCOAL
         amount: 128
-  Burn Crimson Stem:
+  Burn_Crimson_Stem:
     production_time: 8s
     name: Burn Crimson Stem
     type: PRODUCTION
     input:
-      Crimson Stem:
+      Crimson_Stem:
         material: CRIMSON_STEM
         amount: 64
     output:
       Charcoal:
         material: CHARCOAL
         amount: 128
-  Craft Iron Helmets:
+  Craft_Iron_Helmets:
     production_time: 8s
     name: Craft Iron Helmets
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 35
     output:
-      Iron Helmets:
+      Iron_Helmets:
         material: IRON_HELMET
         amount: 8
-  Craft Iron Chestplates:
+  Craft_Iron_Chestplates:
     production_time: 8s
     name: Craft Iron Chestplates
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 56
     output:
-      Iron Chestplates:
+      Iron_Chestplates:
         material: IRON_CHESTPLATE
         amount: 8
-  Craft Iron Leggings:
+  Craft_Iron_Leggings:
     production_time: 8s
     name: Craft Iron Leggings
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 49
     output:
-      Iron Leggings:
+      Iron_Leggings:
         material: IRON_LEGGINGS
         amount: 8
-  Craft Iron Boots:
+  Craft_Iron_Boots:
     production_time: 8s
     name: Craft Iron Boots
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 28
     output:
-      Iron Boots:
+      Iron_Boots:
         material: IRON_BOOTS
         amount: 8
-  Craft Iron Pickaxes:
+  Craft_Iron_Pickaxes:
     production_time: 8s
     name: Craft Iron Pickaxes
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 21
     output:
-      Iron Pickaxes:
+      Iron_Pickaxes:
         material: IRON_PICKAXE
         amount: 8
-  Craft Iron Axes:
+  Craft_Iron_Axes:
     production_time: 8s
     name: Craft Iron Axes
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 21
     output:
-      Iron Axes:
+      Iron_Axes:
         material: IRON_AXE
         amount: 8
-  Craft Iron Shovels:
+  Craft_Iron_Shovels:
     production_time: 8s
     name: Craft Iron Shovels
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 7
     output:
-      Iron Shovels:
+      Iron_Shovels:
         material: IRON_SHOVEL
         amount: 8
-  Craft Iron Swords:
+  Craft_Iron_Swords:
     production_time: 8s
     name: Craft Iron Swords
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 14
     output:
-      Iron Swords:
+      Iron_Swords:
         material: IRON_SWORD
         amount: 8
-  Craft Iron Hoes:
+  Craft_Iron Hoes:
     production_time: 8s
     name: Craft Iron Hoes
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 14
     output:
-      Iron Hoes:
+      Iron_Hoes:
         material: IRON_HOE
         amount: 8
-  Craft Shields:
+  Craft_Shields:
     production_time: 8s
     name: Craft Shields
     type: PRODUCTION
     input:
-      Iron Ingot:
+      Iron_Ingot:
         material: IRON_INGOT
         amount: 7
       Chest:
@@ -873,7 +873,7 @@ recipes:
 
   #BASIC UPGRADES
 
-  Upgrade to Smelter:
+  Upgrade_to_Smelter:
     production_time: 8s
     name: Upgrade to Smelter
     type: UPGRADE
@@ -888,7 +888,7 @@ recipes:
         material: CHARCOAL
         amount: 8
     factory: Smelter
-  Upgrade to Charcoal Burner:
+  Upgrade_to_Charcoal_Burner:
     production_time: 8s
     name: Upgrade to Charcoal Burner
     type: UPGRADE
@@ -1108,9 +1108,9 @@ recipes:
         - Recipe coming soon!
     factory: Expert Cauldron
 
-  #ACCIDENTAL REPAIR
+  #Accidental_Repair
 
-  Accidental Repair:
+  Accidental_Repair:
     name: Accidental Repair
     production_time: 8s
     type: REPAIR
