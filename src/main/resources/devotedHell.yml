@@ -1,0 +1,1121 @@
+default_update_time: 1s
+default_fuel:
+  charcoal:
+    material: CHARCOAL
+default_fuel_consumption_intervall: 1s
+default_return_rate: 0.5
+default_break_grace_period: 28d
+decay_intervall: 1h
+decay_amount: 0
+default_health: 10000
+#What the hell???
+disable_nether: false
+use_recipe_yamlidentifiers: true
+log_inventories: true
+force_include_default: true
+
+factories:
+  Basic Factory:
+    type: FCC
+    name: Basic Factory
+    setupcost:
+      Dev coins:
+        material: ENDER_EYE
+        amount: 7
+    recipes:
+    - Upgrade to Smelter
+    - Upgrade to Charcoal Burner
+    - Upgrade to Iron Armoury
+    - Upgrade to Iron Tools
+    - Upgrade to Aesthetics Factory
+    - Upgrade to Botanical Gardens
+    - Upgrade to Basic Cauldron
+    - Upgrade to Intermediate Factory
+    - Accidental Repair
+
+  #BASIC FACTORIES  
+
+  Smelter:
+    type: FCCUPGRADE
+    name: Smelter  
+    recipes:
+     - Smelt into Nether Bricks
+     - Smelt into Cracked Nether Brick
+     - Smelt into Glass
+     - Accidental Repair
+  Charcoal Burner:
+    type: FCCUPGRADE
+    name: Charcoal Burner
+    recipes:
+     - Burn Warped Stem
+     - Burn Crimson Stem
+     - Accidental Repair
+  Iron Armoury:
+    type: FCCUPGRADE
+    name: Iron Armoury
+    recipes:
+     - Craft Iron Helmets
+     - Craft Iron Chestplates
+     - Craft Iron Leggings
+     - Craft Iron Boots
+     - Accidental Repair
+  Iron Tools:
+    type: FCCUPGRADE
+    name: Iron Tools
+    recipes:
+     - Craft Iron Pickaxes
+     - Craft Iron Axes
+     - Craft Iron Shovels
+     - Craft Iron Swords
+     - Craft Iron Hoes
+     - Craft Shields
+     - Accidental Repair
+  Aesthetics Factory:
+    type: FCCUPGRADE
+    name: Aesthetics Factory
+    recipes:
+     - Placeholder
+     - Accidental Repair
+  Botanical Gardens:
+    type: FCCUPGRADE
+    name: Botanical Gardens
+    recipes:
+     - Placeholder
+     - Accidental Repair
+  Basic Cauldron:
+    type: FCCUPGRADE
+    name: Basic Cauldron
+    recipes:
+     - Placeholder
+     - Accidental Repair  
+
+  #INTERMEDIATE FACTORIES
+
+  Intermediate Factory:
+    type: FCCUPGRADE
+    name: Intermediate Factory
+    recipes:
+     - Upgrade to Diamond Armoury
+     - Upgrade to Diamond Tools
+     - Upgrade to Ore Forge
+     - Upgrade to Transportation Factory
+     - Upgrade to Compactor
+     - Upgrade to Intermediate Cauldron
+     - Upgrade to Expert Factory
+     - Accidental Repair
+  Diamond Armoury:
+    type: FCCUPGRADE
+    name: Diamond Armoury
+    recipes:
+     - Craft Diamond Helmets
+     - Craft Diamond Chestplates
+     - Craft Diamond Leggings
+     - Craft Diamond Boots
+     - Accidental Repair
+  Diamond Tools:
+    type: FCCUPGRADE
+    name: Diamond Tools
+    recipes:
+     - Craft Diamond Pickaxes
+     - Craft Diamond Axes
+     - Craft Diamond Shovels
+     - Craft Diamond Swords
+     - Craft Diamond Hoes
+     - Accidental Repair
+  Ore Forge:
+    type: FCCUPGRADE
+    name: Ore Forge
+    recipes:
+     - Breakdown Iron Ore
+     - Breakdown Redstone Ore
+     - Breakdown Gold Ore
+     - Breakdown Diamond Ore
+     - Accidental Repair
+  Transportation Factory:
+    type: FCCUPGRADE
+    name: Transportation Factory
+    recipes:
+     - Forge Rails
+     - Forge Powered Rails
+     - Forge Detector Rails
+     - Forge Activator Rails
+     - Forge Minecarts
+     - Craft Saddles
+     - Accidental Repair
+  Compactor:
+    type: FCCUPGRADE
+    name: Compactor
+    recipes:
+     - Craft Crates
+     - Compress Items
+     - Decompact Items
+     - Accidental Repair
+  Intermediate Cauldron:
+    type: FCCUPGRADE
+    name: Intermediate Cauldron
+    fuel:
+      Devcoins:
+        material: ENDER_EYE
+    recipes:
+     - Placeholder
+     - Accidental Repair  
+
+  #EXPERT FACTORIES
+  
+  Expert Factory:
+    type: FCCUPGRADE
+    name: Expert Factory
+    fuel:
+      Devcoins:
+        material: ENDER_EYE
+    recipes:
+     - Upgrade to Netherite Armoury
+     - Upgrade to Netherite Tools
+     - Upgrade to Bastion Factory
+     - Upgrade to Expert Cauldron 
+     - Accidental Repair
+  Netherite Armoury:
+    type: FCCUPGRADE
+    name: Netherite Armoury
+    fuel:
+      Devcoins:
+        material: ENDER_EYE
+    recipes:
+     - Craft Netherite Helmets
+     - Craft Netherite Chestplates
+     - Craft Netherite Leggings
+     - Craft Netherite Boots
+     - Accidental Repair
+  Netherite Tools:
+    type: FCCUPGRADE
+    name: Netherite Tools
+    fuel:
+      Devcoins:
+        material: ENDER_EYE
+    recipes:
+     - Craft Netherite Pickaxes
+     - Craft Netherite Axes
+     - Craft Netherite Shovels
+     - Craft Netherite Swords
+     - Craft Netherite Hoes
+     - Accidental Repair
+  Bastion Factory:
+    type: FCCUPGRADE
+    name: Bastion Factory
+    fuel:
+      Devcoins:
+        material: ENDER_EYE
+    recipes:
+     - Placeholder
+     - Accidental Repair
+  Expert Cauldron:
+    type: FCCUPGRADE
+    name: Expert Cauldron
+    fuel:
+      Devcoins:
+        material: ENDER_EYE
+    recipes:
+     - Placeholder
+     - Accidental Repair
+
+  #BASIC RECIPES
+
+recipes:
+  Placeholder:
+    production_time: 8s
+    name: Placeholder
+    type: PRODUCTION
+    input:
+      Barrier:
+        material: BARRIER
+        name: You cannot do this yet!
+        amount: 1
+        lore:
+        - Recipe coming soon!
+    output:
+      Nether Star:
+        material: NETHER_STAR
+        name: Coming Soon
+        amount: 1
+  Smelt into Nether Bricks:
+    production_time: 8s
+    name: Smelt into Nether Bricks
+    type: PRODUCTION
+    input:
+      Netherrack:
+        material: NETHERRACK
+        amount: 64
+    output:
+      Nether bricks:
+        material: NETHER_BRICK
+        amount: 96
+  Smelt into Cracked Nether Brick:
+    production_time: 8s
+    name: Smelt into Cracked Nether Brick
+    type: PRODUCTION
+    input:
+      Nether Brick:
+        material: NETHER_BRICKS 
+        amount: 64
+    output:
+      Cracked Nether Brick:
+        material: CRACKED_NETHER_BRICKS
+        amount: 80
+  Smelt into Glass:
+    production_time: 8s
+    name: Smelt into Glass
+    type: PRODUCTION
+    input:
+      Gravel:
+        material: GRAVEL
+        amount: 64
+    output:
+      Glass:
+        material: GLASS
+        amount: 96
+  Burn Warped Stem:
+    production_time: 8s
+    name: Burn Warped Stem
+    type: PRODUCTION
+    input:
+      Warped Stem:
+        material: WARPED_STEM
+        amount: 64
+    output:
+      Charcoal:
+        material: CHARCOAL
+        amount: 128
+  Burn Crimson Stem:
+    production_time: 8s
+    name: Burn Crimson Stem
+    type: PRODUCTION
+    input:
+      Crimson Stem:
+        material: CRIMSON_STEM
+        amount: 64
+    output:
+      Charcoal:
+        material: CHARCOAL
+        amount: 128
+  Craft Iron Helmets:
+    production_time: 8s
+    name: Craft Iron Helmets
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 35
+    output:
+      Iron Helmets:
+        material: IRON_HELMET
+        amount: 8
+  Craft Iron Chestplates:
+    production_time: 8s
+    name: Craft Iron Chestplates
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 56
+    output:
+      Iron Chestplates:
+        material: IRON_CHESTPLATE
+        amount: 8
+  Craft Iron Leggings:
+    production_time: 8s
+    name: Craft Iron Leggings
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 49
+    output:
+      Iron Leggings:
+        material: IRON_LEGGINGS
+        amount: 8
+  Craft Iron Boots:
+    production_time: 8s
+    name: Craft Iron Boots
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 28
+    output:
+      Iron Boots:
+        material: IRON_BOOTS
+        amount: 8
+  Craft Iron Pickaxes:
+    production_time: 8s
+    name: Craft Iron Pickaxes
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 21
+    output:
+      Iron Pickaxes:
+        material: IRON_PICKAXE
+        amount: 8
+  Craft Iron Axes:
+    production_time: 8s
+    name: Craft Iron Axes
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 21
+    output:
+      Iron Axes:
+        material: IRON_AXE
+        amount: 8
+  Craft Iron Shovels:
+    production_time: 8s
+    name: Craft Iron Shovels
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 7
+    output:
+      Iron Shovels:
+        material: IRON_SHOVEL
+        amount: 8
+  Craft Iron Swords:
+    production_time: 8s
+    name: Craft Iron Swords
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 14
+    output:
+      Iron Swords:
+        material: IRON_SWORD
+        amount: 8
+  Craft Iron Hoes:
+    production_time: 8s
+    name: Craft Iron Hoes
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 14
+    output:
+      Iron Hoes:
+        material: IRON_HOE
+        amount: 8
+  Craft Shields:
+    production_time: 8s
+    name: Craft Shields
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 7
+      Chest:
+        material: CHEST
+        amount: 1  
+    output:
+      Shields:
+        material: SHIELD
+        amount: 8
+
+  #INTERMEDIATE RECIPES
+
+  Craft Diamond Helmets:
+    production_time: 8s
+    name: Craft Diamond Helmets
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 35
+    output:
+      Diamond Helmets:
+        material: DIAMOND_HELMET
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Diamond Chestplates:
+    production_time: 8s
+    name: Craft Diamond Chestplates
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 56
+    output:
+      Diamond Chestplates:
+        material: DIAMOND_CHESTPLATE
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Diamond Leggings:
+    production_time: 8s
+    name: Craft Diamond Leggings
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 49
+    output:
+      Diamond Leggings:
+        material: DIAMOND_LEGGINGS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Diamond Boots:
+    production_time: 8s
+    name: Craft Diamond Boots
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 28
+    output:
+      Diamond Boots:
+        material: DIAMOND_BOOTS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Diamond Pickaxes:
+    production_time: 8s
+    name: Craft Diamond Pickaxes
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 21
+    output:
+      Diamond Pickaxes:
+        material: DIAMOND_PICKAXE
+        amount: 8
+  Craft Diamond Axes:
+    production_time: 8s
+    name: Craft Diamond Axes
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 21
+    output:
+      Diamond Axes:
+        material: DIAMOND_AXE
+        amount: 8
+  Craft Diamond Shovels:
+    production_time: 8s
+    name: Craft Diamond Shovels
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 7
+    output:
+      Diamond Shovels:
+        material: DIAMOND_SHOVEL
+        amount: 8
+  Craft Diamond Swords:
+    production_time: 8s
+    name: Craft Diamond Swords
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 14
+    output:
+      Diamond Swords:
+        material: DIAMOND_SWORD
+        amount: 8
+  Craft Diamond Hoes:
+    production_time: 8s
+    name: Craft Diamond Hoes
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 14
+    output:
+      Diamond Hoes:
+        material: DIAMOND_HOE
+        amount: 8
+  Breakdown Iron Ore:
+    production_time: 8s
+    name: Breakdown Iron Ore
+    type: PRODUCTION
+    input:
+      Iron Ore:
+        material: IRON_ORE
+        amount: 64
+    output:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 80
+  Breakdown Redstone Ore:
+    production_time: 8s
+    name: Breakdown Redstone Ore
+    type: PRODUCTION
+    input:
+      Redstone Ore:
+        material: REDSTONE_ORE
+        amount: 64
+    output:
+      Redstone Block:
+        material: REDSTONE_BLOCK
+        amount: 40
+  Breakdown Gold Ore:
+    production_time: 8s
+    name: Breakdown Gold Ore
+    type: PRODUCTION
+    input:
+      Gold Ore:
+        material: GOLD_ORE
+        amount: 32
+    output:
+      Gold Ingot:
+        material: GOLD_INGOT
+        amount: 40
+  Breakdown Diamond Ore:
+    production_time: 8s
+    name: Breakdown Diamond Ore
+    type: PRODUCTION
+    input:
+      Diamond Ore:
+        material: DIAMOND_ORE
+        amount: 16
+    output:
+      Diamond:
+        material: DIAMOND
+        amount: 20
+  Forge Rails:
+    production_time: 8s
+    name: Forge Rails
+    type: PRODUCTION
+    input:
+      Lava Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 12
+      Chest:
+        material: CHEST
+        amount: 1    
+    output:
+      Buckets:
+        material: BUCKET
+        amount: 4
+      Rails:
+        material: RAIL
+        amount: 64
+  Forge Powered Rails:
+    production_time: 8s
+    name: Forge Powered Rails
+    type: PRODUCTION
+    input:
+      Lava Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Gold Ingot:
+        material: GOLD_INGOT
+        amount: 12
+      Redstone:
+        material: REDSTONE
+        amount: 8  
+      Chest:
+        material: CHEST
+        amount: 1    
+    output:
+      Powered Rails:
+        material: POWERED_RAIL
+        amount: 64
+      Buckets:
+        material: BUCKET
+        amount: 4
+  Forge Detector Rails:
+    production_time: 8s
+    name: Forge Detector Rails
+    type: PRODUCTION
+    input:
+      Lava Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Gold Ingot:
+        material: IRON_INGOT
+        amount: 12
+      Redstone:
+        material: REDSTONE
+        amount: 8  
+      Blackstone Pressure Pad:
+        material: POLISHED_BLACKSTONE_PRESSURE_PLATE
+        amount: 4    
+    output:
+      Detector Rails:
+        material: DETECTOR_RAIL
+        amount: 64
+      Buckets:
+        material: BUCKET
+        amount: 4
+  Forge Activator Rails:
+    production_time: 8s
+    name: Forge Activator Rails
+    type: PRODUCTION
+    input:
+      Lava Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Gold Ingot:
+        material: IRON_INGOT
+        amount: 12
+      Redstone:
+        material: REDSTONE_TORCH
+        amount: 4     
+    output:
+      Activator Rails:
+        material: ACTIVATOR_RAIL
+        amount: 64
+      Buckets:
+        material: BUCKET
+        amount: 4
+  Forge Minecarts:
+    production_time: 8s
+    name: Forge Minecarts
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 35    
+    output:
+      Minecarts:
+        material: MINECART
+        amount: 8
+  Craft Saddles:
+    production_time: 8s
+    name: Craft Saddles
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 16
+      Leather:
+        material: LEATHER
+        amount: 64
+    output:
+      Saddles:
+        material: SADDLE
+        amount: 8
+  Compress Items:
+    production_time: 8s
+    name: Compress Items
+    type: COMPACT
+    input:
+      Crates:
+        material: CHEST
+        name: Crate
+        lore:
+          - Crate - Used to Compact Items!
+    compact_lore: Compacted Item
+    excluded_materials:
+      - BOOK
+  Decompact Items:
+    production_time: 8s
+    name: Decompact Items
+    type: DECOMPACT
+    input:
+    compact_lore: Compacted Item
+    excluded_materials:
+      - BOOK
+  Craft Crates:
+    production_time: 8s
+    name: Craft Crates
+    type: PRODUCTION
+    input:
+      Iron Ingot:
+        material: IRON_INGOT
+        amount: 12
+      Chests:
+        material: CHEST
+        amount: 64
+    output:
+      Crates:
+        material: CHEST
+        amount: 64
+        name: Crate
+        lore:
+          - Crate - Used to Compact Items!
+
+  #EXPERT RECIPES
+
+  Craft Netherite Helmets:
+    production_time: 8s
+    name: Craft Netherite Helmets
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 35
+    output:
+      Netherite Helmets:
+        material: DIAMOND_HELMET
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Netherite Chestplates:
+    production_time: 8s
+    name: Craft Netherite Chestplates
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 56
+    output:
+      Netherite Chestplates:
+        material: NETHERITE_CHESTPLATE
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Netherite Leggings:
+    production_time: 8s
+    name: Craft Netherite Leggings
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 49
+    output:
+      Netherite Leggings:
+        material: NETHERITE_LEGGINGS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Netherite Boots:
+    production_time: 8s
+    name: Craft Netherite Boots
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 28
+    output:
+      Netherite Boots:
+        material: NETHERITE_BOOTS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft Netherite Pickaxes:
+    production_time: 8s
+    name: Craft Netherite Pickaxes
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 21
+    output:
+      Netherite Pickaxes:
+        material: NETHERITE_PICKAXE
+        amount: 8
+  Craft Netherite Axes:
+    production_time: 8s
+    name: Craft Netherite Axes
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 21
+    output:
+      Netherite Axes:
+        material: NETHERITE_AXE
+        amount: 8
+  Craft Netherite Shovels:
+    production_time: 8s
+    name: Craft Netherite Shovels
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 7
+    output:
+      Netherite Shovels:
+        material: NETHERITE_SHOVEL
+        amount: 8
+  Craft Netherite Swords:
+    production_time: 8s
+    name: Craft Netherite Swords
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 14
+    output:
+      Netherite Swords:
+        material: NETHERITE_SWORD
+        amount: 8
+  Craft Netherite Hoes:
+    production_time: 8s
+    name: Craft Netherite Hoes
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 14
+    output:
+      Netherite Hoes:
+        material: NETHERITE_HOE
+        amount: 8
+
+  #BASIC UPGRADES
+
+  Upgrade to Smelter:
+    production_time: 8s
+    name: Upgrade to Smelter
+    type: UPGRADE
+    input:
+      Netherrack:
+        material: NETHERRACK
+        amount: 64
+      Furance:
+        material: FURNACE
+        amount: 8
+      Charcoal block:
+        material: CHARCOAL
+        amount: 8
+    factory: Smelter
+  Upgrade to Charcoal Burner:
+    production_time: 8s
+    name: Upgrade to Charcoal Burner
+    type: UPGRADE
+    input:
+      Warped Stem:
+        material: WARPED_STEM
+        amount: 64
+      Crimson Stem:
+        material: CRIMSON_STEM
+        amount: 8
+      Charcoal:
+        material: CHARCOAL
+        amount: 64
+    factory: Charcoal Burner
+  Upgrade to Iron Armoury:
+    production_time: 8s
+    name: Upgrade to Iron Armoury
+    type: UPGRADE
+    input:
+      Iron Blocks:
+        material: IRON_BLOCK
+        amount: 8
+    factory: Iron Armoury
+  Upgrade to Iron Tools:
+    production_time: 8s
+    name: Upgrade to Iron Tools
+    type: UPGRADE
+    input:
+      Iron Blocks:
+        material: IRON_BLOCK
+        amount: 8
+    factory: Iron Tools
+  Upgrade to Aesthetics Factory:
+    production_time: 8s
+    name: Upgrade to Aesthetics Factory
+    type: UPGRADE
+    input:
+      Blackstone:
+        material: BLACKSTONE
+        amount: 64
+      Basalt:
+        material: BASALT
+        amount: 64
+      Gravel:
+        material: GRAVEL
+        amount: 64
+    factory: Aesthetics Factory
+  Upgrade to Botanical Gardens:
+    production_time: 8s
+    name: Upgrade to Botanical Gardens
+    type: UPGRADE
+    input:
+      Crimson Roots:
+        material: CRIMSON_ROOTS
+        amount: 64
+      Warped Roots:
+        material: WARPED_ROOTS
+        amount: 64
+    factory: Botanical Gardens
+  Upgrade to Basic Cauldron:
+    production_time: 8s
+    name: Upgrade to Basic Cauldron
+    type: UPGRADE
+    input:
+      Barrier:
+        material: BARRIER
+        name: You cannot do this yet!
+        amount: 1
+        lore:
+        - Recipe coming soon!
+    factory: Basic Cauldron
+
+  #INTERMEDIATE UPGRADES
+
+  Upgrade to Intermediate Factory:
+    production_time: 8s
+    name: Upgrade to Intermediate Factory
+    type: UPGRADE
+    input:
+      Devcoins:
+        material: ENDER_EYE
+        amount: 21
+    factory: Intermediate Factory
+  Upgrade to Diamond Armoury:
+    production_time: 8s
+    name: Upgrade to Diamond Armoury
+    type: UPGRADE
+    input:
+      Diamond Block:
+        material: DIAMOND_BLOCK
+        amount: 8
+    factory: Diamond Armoury
+  Upgrade to Diamond Tools:
+    production_time: 8s
+    name: Upgrade to Diamond Armoury
+    type: UPGRADE
+    input:
+      Diamond Block:
+        material: DIAMOND_BLOCK
+        amount: 8
+    factory: Diamond Tools
+  Upgrade to Ore Forge:
+    production_time: 8s
+    name: Upgrade to Ore Forge
+    type: UPGRADE
+    input:
+      Diamond Ore:
+        material: DIAMOND_ORE
+        amount: 64
+      Gold Ore:
+        material: NETHER_GOLD_ORE
+        amount: 128
+      Redstone Ore:
+        material: REDSTONE_ORE
+        amount: 64
+      Iron Ore:
+        material: IRON_ORE
+        amount: 256
+    factory: Ore Forge
+  Upgrade to Transportation Factory:
+    production_time: 8s
+    name: Upgrade to Transportation Factory
+    type: UPGRADE
+    input:
+      Minecart:
+        material: MINECART
+        amount: 1
+      Leather:
+        material: LEATHER
+        amount: 32
+    factory: Transportation Factory
+  Upgrade to Compactor:
+    production_time: 8s
+    name: Upgrade to Compactor
+    type: UPGRADE
+    input:
+      Pistons:
+        material: PISTON
+        amount: 32
+      Redstone Block:
+        material: REDSTONE_BLOCK
+        amount: 32
+      Iron Block:
+        material: IRON_BLOCK
+        amount: 32
+      Crates:
+        material: CHEST
+        amount: 32
+        name: Crate
+        lore:
+          - Crate - Used to Compact Items!
+    factory: Compactor
+  Upgrade to Intermediate Cauldron:
+    production_time: 8s
+    name: Upgrade to Intermediate Cauldron
+    type: UPGRADE
+    input:
+      Barrier:
+        material: BARRIER
+        name: You cannot do this yet!
+        amount: 1
+        lore:
+        - Recipe coming soon!
+    factory: Intermediate Cauldron
+
+  #EXPERT UPGRADES
+
+  Upgrade to Expert Factory:
+    production_time: 8s
+    name: Upgrade to Expert Factory
+    type: UPGRADE
+    input:
+      Devcoins:
+        material: ENDER_EYE
+        amount: 42
+    factory: Expert Factory
+  Upgrade to Netherite Armoury:
+    production_time: 8s
+    name: Upgrade to Netherite Armoury
+    type: UPGRADE
+    input:
+      Netherite:
+        material: NETHERITE_BLOCK
+        amount: 8
+    factory: Netherite Armoury
+  Upgrade to Netherite Tools:
+    production_time: 8s
+    name: Upgrade to Netherite Tools
+    type: UPGRADE
+    input:
+      Netherite:
+        material: NETHERITE_BLOCK
+        amount: 8
+    factory: Netherite Tools
+  Upgrade to Bastion Factory:
+    production_time: 8s
+    name: Upgrade to Bastion Factory
+    type: UPGRADE
+    input:
+      Barrier:
+        material: BARRIER
+        name: You cannot do this yet!
+        amount: 1
+        lore:
+        - Recipe coming soon!
+    factory: Bastion Factory
+  Upgrade to Expert Cauldron:
+    production_time: 8s
+    name: Upgrade to Expert Cauldron
+    type: UPGRADE
+    input:
+      Barrier:
+        material: BARRIER
+        name: You cannot do this yet!
+        amount: 1
+        lore:
+        - Recipe coming soon!
+    factory: Expert Cauldron
+
+  #ACCIDENTAL REPAIR
+
+  Accidental Repair:
+    name: Accidental Repair
+    production_time: 8s
+    type: REPAIR
+    input:
+      Devcoins:
+        material: ENDER_EYE
+        amount: 10
+    health_gained: 10000
