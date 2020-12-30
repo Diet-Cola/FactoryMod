@@ -455,7 +455,7 @@ recipes:
             enchant: VANISHING_CURSE
   Craft_Diamond_Leggings:
     production_time: 8s
-    name: Craft_Diamond_Leggings
+    name: Craft Diamond Leggings
     type: PRODUCTION
     input:
       Diamond:
@@ -1119,4 +1119,3 @@ recipes:
         material: ENDER_EYE
         amount: 10
     health_gained: 10000
-    
