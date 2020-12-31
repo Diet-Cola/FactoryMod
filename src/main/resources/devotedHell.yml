@@ -83,6 +83,7 @@ factories:
      - Craft_Cobwebs
      - Craft_Clay_Blocks
      - Craft_Dried_Kelp
+     - Craft_Chains
      - Accidental_Repair
   Botanical_Gardens:
     type: FCCUPGRADE
@@ -790,6 +791,18 @@ recipes:
         Turtle_Egg:
           material: TURTLE_EGG
           amount: 1
+  Craft_Chains:
+    production_time: 8s
+    name: Craft Chains
+    type: PRODUCTION
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 1
+    output:
+      Chains:
+        material: CHAIN
+        amount: 3
 
   #INTERMEDIATE RECIPES
 
