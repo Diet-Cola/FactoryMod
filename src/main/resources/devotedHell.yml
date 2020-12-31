@@ -1347,7 +1347,7 @@ recipes:
 
   Upgrade_to_Intermediate_Factory:
     production_time: 8s
-    name: Upgrade to Intermediate_Factory
+    name: Upgrade to Intermediate Factory
     type: UPGRADE
     input:
       Devcoins:
