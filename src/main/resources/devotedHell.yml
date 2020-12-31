@@ -42,6 +42,7 @@ factories:
      - Smelt_into_Nether_Bricks
      - Smelt_into_Cracked_Nether_Brick
      - Smelt_into_Glass
+     - Smelt_Gravel_and_Basalt_to_Cobble
      - Accidental_Repair
   Charcoal_Burner:
     type: FCCUPGRADE
@@ -74,13 +75,25 @@ factories:
     type: FCCUPGRADE
     name: Aesthetics Factory
     recipes:
-     - Placeholder
+     - Grind_Gravel_into_Sand
+     - Craft_Diorite
+     - Craft_Andesite
+     - Craft_Granite
+     - Craft_Bell
+     - Craft_Cobwebs
+     - Craft_Clay_Blocks
+     - Craft_Dried_Kelp
      - Accidental_Repair
   Botanical_Gardens:
     type: FCCUPGRADE
     name: Botanical Gardens
     recipes:
-     - Placeholder
+     - Random_Roots_to_Flowers
+     - Cleanse_Magma_to_Slime
+     - Grow_Grass
+     - Grow_Podzol
+     - Grow_Mycelium
+     - Craft_Paper
      - Accidental_Repair
   Basic_Cauldron:
     type: FCCUPGRADE
@@ -420,6 +433,363 @@ recipes:
       Shields:
         material: SHIELD
         amount: 8
+  Grind_Gravel_into_Sand:
+    production_time: 8s
+    name: Grind Gravel into Sand
+    type: PRODUCTION
+    input:
+      Gravel:
+        material: GRAVEL
+        amount: 64
+    output:
+      Sand:
+        material: SAND
+        amount: 32
+  Craft_Diorite:
+    production_time: 8s
+    name: Craft Diorite
+    type: PRODUCTION
+    input:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 64
+      Quartz:
+        material: QUARTZ
+        amount: 64
+    output:
+      Diorite:
+        material: DIORITE
+        amount: 96
+  Craft_Andesite:
+    production_time: 8s
+    name: Craft Andesite
+    type: PRODUCTION
+    input:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 32
+      Diorite:
+        material: DIORITE
+        amount: 32
+    output:
+      Andesite:
+        material: ANDESITE
+        amount: 96
+  Craft_Granite:
+    production_time: 8s
+    name: Craft Granite
+    type: PRODUCTION
+    input:
+      Quartz:
+        material: QUARTZ
+        amount: 64
+      Diorite:
+        material: DIORITE
+        amount: 64
+    output:
+      Granite:
+        material: GRANITE
+        amount: 96
+  Smelt_Gravel_and_Basalt_to_Cobble:
+    production_time: 8s
+    name: Smelt Gravel & Basalt into Cobblestone
+    type: PRODUCTION
+    input:
+      Gravel:
+        material: QUARTZ
+        amount: 64
+      Basalt:
+        material: DIORITE
+        amount: 64
+      Lava_Bucket:
+        material: LAVA_BUCKET
+        amount: 1  
+    output:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 128
+      Bucket:
+        material: BUCKET
+        amount: 1  
+  Grow_Grass:
+    production_time: 8s
+    name: Grow Grass
+    type: PRODUCTION
+    input:
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 16
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 16
+      Dirt:
+        material: DIRT
+        amount: 32
+    output:
+      Grass:
+        material: GRASS_BLOCK
+        amount: 16
+  Grow_Podzol:
+    production_time: 8s
+    name: Grow Podzol
+    type: PRODUCTION
+    input:
+      Soul_Sand:
+        material: SOUL_SAND
+        amount: 32
+      Coarse_Dirt:
+        material: DIRT
+        amount: 32
+    output:
+      Podzol:
+        material: PODZOL
+        amount: 16
+  Grow_Mycelium:
+    production_time: 8s
+    name: Grow Mycelium
+    type: PRODUCTION
+    input:
+      Soul_Soil:
+        material: SOUL_SOIL
+        amount: 32
+      Coarse_Dirt:
+        material: DIRT
+        amount: 32
+    output:
+      Mycelium:
+        material: MYCELIUM
+        amount: 16
+  Craft_Dried_Kelp:
+    production_time: 8s
+    name: Craft Dried Kelp Blocks
+    type: PRODUCTION
+    input:
+      Stripped_Warped_Stem:
+        material: STRIPPED_WARPED_STEM
+        amount: 32
+      Green_Dye:
+        material: GREEN_DYE
+        amount: 4
+    output:
+      Dried_Kelp:
+        material: DRIED_KELP_BLOCK
+        amount: 24
+  Craft_Clay_Blocks:
+    production_time: 8s
+    name: Craft Clay Blocks
+    type: PRODUCTION
+    input:
+      Nether_Bricks:
+        material: NETHER_BRICK
+        amount: 32
+      Gravel:
+        material: GRAVEL
+        amount: 8
+      Water_Bottle:
+        material: POTION
+        potion_effects:
+          type: WATER
+    output:
+      Clay_Blocks:
+        material: CLAY
+        amount: 32
+  Craft_Bell:
+    production_time: 8s
+    name: Craft Bell
+    type: PRODUCTION
+    input:
+      Gold_Block:
+        material: GOLD_BLOCK
+        amount: 1
+      Sticks:
+        material: STICK
+        amount: 2
+    output:
+      Bell:
+        material: BELL
+        amount: 1
+  Craft_Cobwebs:
+    production_time: 8s
+    name: Craft Cobwebs
+    type: PRODUCTION
+    input:
+      String:
+        material: STRING
+        amount: 96
+      Slimeball:
+        material: SLIME_BALL
+        amount: 8
+    output:
+      Cobwebs:
+        material: COBWEB
+        amount: 48
+  Craft_Paper:
+    production_time: 8s
+    name: Craft Paper
+    type: PRODUCTION
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 3
+    output:
+      Paper:
+        material: PAPER
+        amount: 3
+  Cleanse_Magma_to_Slime:
+    production_time: 8s
+    name: Cleanse Magma into Slime
+    type: PRODUCTION
+    input:
+      Magma_Cream:
+        material: MAGMA_CREAM
+        amount: 32
+      Water_Bottle:
+        material: POTION
+        amount: 4
+        potion_effects:
+          type: WATER
+    output:
+      Slimeball:
+        material: SLIME_BALL
+        amount: 8
+  Random_Roots_to_Flowers:
+    type: RANDOM
+    name: Grow Roots into Flowers
+    production_time: 8s
+    input:
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 1
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 1
+    outputs:
+      display: Poppy
+      Fern:
+        chance: 0.04
+        Fern:
+          material: FERN
+          amount: 1
+      Dead_Bush:
+        chance: 0.04
+        Dead_Bush:
+          material: DEAD_BUSH
+          amount: 1
+      Sea_Pickle:
+        chance: 0.04
+        Sea_Pickle:
+          material: SEA_PICKLE
+          amount: 1
+      Dandelion:
+        chance: 0.04
+        Dandelion:
+          material: DANDELION
+          amount: 1
+      Poppy:
+        chance: 0.04
+        Poppy:
+          material: POPPY
+          amount: 1
+      Blue_Orchid:
+        chance: 0.04
+        Blue_Orchid:
+          material: BLUE_ORCHID
+          amount: 1
+      Allium:
+        chance: 0.04
+        Allium:
+          material: ALLIUM
+          amount: 1
+      Azure_Bluet:
+        chance: 0.04
+        Azure_Bluet:
+          material: AZURE_BLUET
+          amount: 1
+      Red_Tulip:
+        chance: 0.04
+        Red_Tulip:
+          material: RED_TULIP
+          amount: 1
+      Orange_Tulip:
+        chance: 0.04
+        Orange_Tulip:
+          material: ORANGE_TULIP
+          amount: 1
+      White_Tulip:
+        chance: 0.04
+        White_Tulip:
+          material: WHITE_TULIP
+          amount: 1
+      Pink_Tulip:
+        chance: 0.04
+        Pink_Tulip:
+          material: PINK_TULIP
+          amount: 1
+      Oxeye_Daisy:
+        chance: 0.04
+        Oxeye_Daisy:
+          material: OXEYE_DAISY
+          amount: 1
+      Cornflower:
+        chance: 0.04
+        Cornflower:
+          material: CORNFLOWER
+          amount: 1
+      Lily_Of_The_Valley:
+        chance: 0.04
+        Lily_Of_The_Valley:
+          material: LILY_OF_THE_VALLEY
+          amount: 1
+      Wither_Rose:
+        chance: 0.04
+        Wither_Rose:
+          material: WITHER_ROSE
+          amount: 1
+      Bamboo:
+        chance: 0.04
+        Bamboo:
+          material: BAMBOO
+          amount: 1
+      Vines:
+        chance: 0.04
+        Vines:
+          material: VINE
+          amount: 1
+      Lily_Pad:
+        chance: 0.04
+        Lily_Pad:
+          material: LILY_PAD
+          amount: 1
+      Sunflower:
+        chance: 0.04
+        Sunflower:
+          material: SUNFLOWER
+          amount: 1
+      Lilac:
+        chance: 0.04
+        Lilac:
+          material: LILAC
+          amount: 1
+      Rose_Bush:
+        chance: 0.04
+        Rose_Bush:
+          material: ROSE_BUSH
+          amount: 1
+      Peony:
+        chance: 0.04
+        Peony:
+          material: PEONY
+          amount: 1
+      Large_Fern:
+        chance: 0.04
+        Large_Fern:
+          material: LARGE_FERN
+          amount: 1
+      Turtle_Egg:
+        chance: 0.04
+        Turtle_Egg:
+          material: TURTLE_EGG
+          amount: 1
 
   #INTERMEDIATE RECIPES
 
@@ -579,6 +949,9 @@ recipes:
       Gold_Ingot:
         material: GOLD_INGOT
         amount: 40
+      Brown_Dye_Byproduct:
+        material: BROWN_DYE
+        amount: 8  
   Breakdown_Diamond_Ore:
     production_time: 8s
     name: Breakdown Diamond Ore
@@ -591,6 +964,15 @@ recipes:
       Diamond:
         material: DIAMOND
         amount: 20
+      Lapis_Byproduct:
+        material: LAPIS_LAZULI
+        amount: 16
+      Prismarine_Byproduct:
+        material: PRISMARINE_SHARD
+        amount: 16
+      Prismarine_Crystal_Byproduct:
+        material: PRISMARINE_CRYSTALS
+        amount: 16
   Forge_Rails:
     production_time: 8s
     name: Forge Rails
@@ -965,7 +1347,7 @@ recipes:
 
   Upgrade_to_Intermediate_Factory:
     production_time: 8s
-    name: Upgrade_to_Intermediate_Factory
+    name: Upgrade to Intermediate_Factory
     type: UPGRADE
     input:
       Devcoins:
