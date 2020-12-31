@@ -280,8 +280,8 @@ recipes:
     name: Smelt into Glass
     type: PRODUCTION
     input:
-      Gravel:
-        material: GRAVEL
+      Sand:
+        material: SAND
         amount: 64
     output:
       Glass:
