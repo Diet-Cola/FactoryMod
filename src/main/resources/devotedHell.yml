@@ -1,7 +1,7 @@
 default_update_time: 1s
 default_fuel:
-  charcoal:
-    material: CHARCOAL
+  Coal:
+    material: COAL
 default_fuel_consumption_intervall: 1s
 default_return_rate: 0.5
 default_break_grace_period: 28d
@@ -19,9 +19,12 @@ factories:
     type: FCC
     name: Basic Factory
     setupcost:
-      Dev coins:
+      Souls:
         material: ENDER_EYE
         amount: 7
+        name: Souls
+        lore:
+          - Activity reward used in factories
     recipes:
     - Upgrade_to_Smelter
     - Upgrade_to_Charcoal_Burner
@@ -91,7 +94,7 @@ factories:
     recipes:
      - Random_Roots_to_Flowers
      - Cleanse_Magma_to_Slime
-     - Grow_Grass
+     - Grow_Dirt
      - Grow_Podzol
      - Grow_Mycelium
      - Craft_Paper
@@ -168,8 +171,11 @@ factories:
     type: FCCUPGRADE
     name: Intermediate Cauldron
     fuel:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
     recipes:
      - Placeholder
      - Accidental_Repair  
@@ -180,8 +186,11 @@ factories:
     type: FCCUPGRADE
     name: Expert Factory
     fuel:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
     recipes:
      - Upgrade_to_Netherite_Armoury
      - Upgrade_to_Netherite_Tools
@@ -192,8 +201,11 @@ factories:
     type: FCCUPGRADE
     name: Netherite Armoury
     fuel:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
     recipes:
      - Craft_Netherite_Helmets
      - Craft_Netherite_Chestplates
@@ -204,8 +216,11 @@ factories:
     type: FCCUPGRADE
     name: Netherite Tools
     fuel:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
     recipes:
      - Craft_Netherite_Pickaxes
      - Craft_Netherite_Axes
@@ -217,8 +232,11 @@ factories:
     type: FCCUPGRADE
     name: Bastion Factory
     fuel:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
     recipes:
      - Placeholder
      - Accidental_Repair
@@ -226,8 +244,11 @@ factories:
     type: FCCUPGRADE
     name: Expert Cauldron
     fuel:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
     recipes:
      - Placeholder
      - Accidental_Repair
@@ -296,8 +317,8 @@ recipes:
         material: WARPED_STEM
         amount: 64
     output:
-      Charcoal:
-        material: CHARCOAL
+      Coal:
+        material: COAL
         amount: 128
   Burn_Crimson_Stem:
     production_time: 8s
@@ -308,8 +329,8 @@ recipes:
         material: CRIMSON_STEM
         amount: 64
     output:
-      Charcoal:
-        material: CHARCOAL
+      Coal:
+        material: COAL
         amount: 128
   Craft_Iron_Helmets:
     production_time: 8s
@@ -512,9 +533,9 @@ recipes:
       Bucket:
         material: BUCKET
         amount: 1  
-  Grow_Grass:
+  Grow_Dirt:
     production_time: 8s
-    name: Grow Grass
+    name: Grow Dirt
     type: PRODUCTION
     input:
       Crimson_Roots:
@@ -523,12 +544,12 @@ recipes:
       Warped_Roots:
         material: WARPED_ROOTS
         amount: 16
-      Dirt:
-        material: DIRT
+      Soul_Sand:
+        material: SOUL_SAND
         amount: 32
     output:
-      Grass:
-        material: GRASS_BLOCK
+      Dirt:
+        material: DIRT
         amount: 16
   Grow_Podzol:
     production_time: 8s
@@ -746,10 +767,11 @@ recipes:
         Wither_Rose:
           material: WITHER_ROSE
           amount: 1
-      Bamboo:
+      #Replace me with Cactus when they arent a lag source in RB
+      Green_Dye:
         chance: 0.04
-        Bamboo:
-          material: BAMBOO
+        Green_Dye:
+          material: GREEN_DYE
           amount: 1
       Vines:
         chance: 0.04
@@ -1155,7 +1177,7 @@ recipes:
         amount: 35
     output:
       Netherite__Helmets:
-        material: DIAMOND_HELMET
+        material: NETHERITE_HELMET
         amount: 8
         enchants:
           Vanishing:
@@ -1279,8 +1301,8 @@ recipes:
       Furance:
         material: FURNACE
         amount: 8
-      Charcoal block:
-        material: CHARCOAL
+      Coal_block:
+        material: COAL_BLOCK
         amount: 8
     factory: Smelter
   Upgrade_to_Charcoal_Burner:
@@ -1293,9 +1315,9 @@ recipes:
         amount: 64
       Crimson_Stem:
         material: CRIMSON_STEM
-        amount: 8
-      Charcoal:
-        material: CHARCOAL
+        amount: 64
+      Coal:
+        material: COAL
         amount: 64
     factory: Charcoal Burner
   Upgrade_to_Iron_Armoury:
@@ -1363,9 +1385,12 @@ recipes:
     name: Upgrade to Intermediate Factory
     type: UPGRADE
     input:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
         amount: 21
+        lore:
+          - Activity reward used in factories
     factory: Intermediate Factory
   Upgrade_to_Diamond_Armoury:
     production_time: 8s
@@ -1456,9 +1481,12 @@ recipes:
     name: Upgrade to Expert Factory
     type: UPGRADE
     input:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
+        name: Souls
         amount: 42
+        lore:
+          - Activity reward used in factories
     factory: Expert Factory
   Upgrade_to_Netherite_Armoury:
     production_time: 8s
@@ -1510,7 +1538,10 @@ recipes:
     production_time: 8s
     type: REPAIR
     input:
-      Devcoins:
+      Souls:
         material: ENDER_EYE
-        amount: 10
+        name: Souls
+        amount: 1
+        lore:
+          - Activity reward used in factories
     health_gained: 10000
