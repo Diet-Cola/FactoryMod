@@ -13,7 +13,7 @@
 	<groupId>com.github.igotyou</groupId>
 	<artifactId>FactoryMod</artifactId>
 	<packaging>jar</packaging>
-	<version>2.5.1</version>
+	<version>2.5.1D</version>
 	<name>FactoryMod</name>
 	<url>https://github.com/Civclassic/FactoryMod</url>
 
@@ -33,13 +33,13 @@
 		<dependency>
 			<groupId>vg.civcraft.mc.citadel</groupId>
 			<artifactId>Citadel</artifactId>
-			<version>4.1.1</version>
+			<version>4.1.1D</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>vg.civcraft.mc.civmodcore</groupId>
 			<artifactId>CivModCore</artifactId>
-			<version>1.8.1</version>
+			<version>1.8.2D</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
