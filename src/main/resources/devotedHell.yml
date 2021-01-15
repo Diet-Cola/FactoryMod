@@ -27,7 +27,7 @@ factories:
           - Activity reward used in factories
     recipes:
     - Upgrade_to_Smelter
-    - Upgrade_to_Coal_Burner
+    - Upgrade_to_Charcoal_Burner
     - Upgrade_to_Aesthetics_Factory
     - Upgrade_to_Botanical_Gardens
     - Upgrade_to_Basic_Cauldron
@@ -45,9 +45,9 @@ factories:
      - Smelt_into_Glass
      - Smelt_Gravel_and_Basalt_to_Cobble
      - Accidental_Repair
-  Coal_Burner:
+  Charcoal_Burner:
     type: FCCUPGRADE
-    name: Coal Burner
+    name: Charcoal Burner
     recipes:
      - Burn_Warped_Stem
      - Burn_Crimson_Stem
@@ -319,12 +319,6 @@ recipes:
     name: Grind Gravel into Sand
     type: PRODUCTION
     input:
-      Soul_Sand:
-        material: SOUL_SAND
-        amount: 128
-      Soul_Soil:
-        material: SOUL_SOIL
-        amount: 128
       Gravel:
         material: GRAVEL
         amount: 64
@@ -383,10 +377,10 @@ recipes:
     type: PRODUCTION
     input:
       Gravel:
-        material: GRAVEL
+        material: QUARTZ
         amount: 64
       Basalt:
-        material: BASALT
+        material: DIORITE
         amount: 64
       Lava_Bucket:
         material: LAVA_BUCKET
@@ -538,7 +532,7 @@ recipes:
     output:
       Slimeball:
         material: SLIME_BALL
-        amount: 1
+        amount: 8
   Random_Roots_to_Flowers:
     type: RANDOM
     name: Grow Roots into Flowers
@@ -836,14 +830,14 @@ recipes:
     output:
       Redstone_Block:
         material: REDSTONE_BLOCK
-        amount: 50
+        amount: 40
   Breakdown_Gold_Ore:
     production_time: 8s
     name: Breakdown Gold Ore
     type: PRODUCTION
     input:
-      Nether_Gold_Ore:
-        material: NETHER_GOLD_ORE
+      Gold_Ore:
+        material: GOLD_ORE
         amount: 32
     output:
       Gold_Ingot:
@@ -863,7 +857,7 @@ recipes:
     output:
       Diamond:
         material: DIAMOND
-        amount: 40
+        amount: 20
       Lapis_Byproduct:
         material: LAPIS_LAZULI
         amount: 16
@@ -1281,7 +1275,7 @@ recipes:
         material: EMERALD_BLOCK
         amount: 1
   XP_2_A:
-    production_time: 8s
+    production_time: 1s
     name: Produce Intermediate XP A
     type: PRODUCTION
     input:
@@ -1305,18 +1299,12 @@ recipes:
         amount: 1
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 1
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
         amount: 3
   XP_2_B:
-    production_time: 8s
+    production_time: 1s
     name: Produce Intermediate XP B
     type: PRODUCTION
     input:
@@ -1340,18 +1328,12 @@ recipes:
         amount: 1
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 1
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
         amount: 3
   XP_2_C:
-    production_time: 8s
+    production_time: 1s
     name: Produce Intermediate XP C
     type: PRODUCTION
     input:
@@ -1375,12 +1357,6 @@ recipes:
         amount: 1
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 1
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
@@ -1440,12 +1416,6 @@ recipes:
         amount: 8
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 8
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
@@ -1467,9 +1437,9 @@ recipes:
         material: COAL_BLOCK
         amount: 8
     factory: Smelter
-  Upgrade_to_Coal_Burner:
+  Upgrade_to_Charcoal_Burner:
     production_time: 8s
-    name: Upgrade to Coal Burner
+    name: Upgrade to Charcoal Burner
     type: UPGRADE
     input:
       Warped_Stem:
@@ -1481,7 +1451,7 @@ recipes:
       Coal:
         material: COAL
         amount: 64
-    factory: Coal Burner
+    factory: Charcoal Burner
   Upgrade_to_Aesthetics_Factory:
     production_time: 8s
     name: Upgrade to Aesthetics Factory
@@ -1597,7 +1567,7 @@ recipes:
         amount: 32
       Redstone_Block:
         material: REDSTONE_BLOCK
-        amount: 1
+        amount: 32
       Iron_Block:
         material: IRON_BLOCK
         amount: 32
