@@ -1281,7 +1281,7 @@ recipes:
         material: EMERALD_BLOCK
         amount: 1
   XP_2_A:
-    production_time: 8s
+    production_time: 1s
     name: Produce Intermediate XP A
     type: PRODUCTION
     input:
@@ -1305,18 +1305,12 @@ recipes:
         amount: 1
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 1
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
         amount: 3
   XP_2_B:
-    production_time: 8s
+    production_time: 1s
     name: Produce Intermediate XP B
     type: PRODUCTION
     input:
@@ -1340,18 +1334,12 @@ recipes:
         amount: 1
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 1
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
         amount: 3
   XP_2_C:
-    production_time: 8s
+    production_time: 1s
     name: Produce Intermediate XP C
     type: PRODUCTION
     input:
@@ -1375,12 +1363,6 @@ recipes:
         amount: 1
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 1
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
@@ -1440,12 +1422,6 @@ recipes:
         amount: 8
         potion_effects:
           type: WATER
-      Souls:
-        material: ENDER_EYE
-        amount: 8
-        name: Souls
-        lore:
-          - Activity reward used in factories
     output:
       XP:
         material: EMERALD_BLOCK
