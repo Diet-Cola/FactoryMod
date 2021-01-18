@@ -5,7 +5,7 @@ default_fuel:
 default_fuel_consumption_intervall: 1s
 default_return_rate: 0.5
 default_break_grace_period: 28d
-decay_intervall: 1h
+decay_intervall: never
 decay_amount: 0
 default_health: 10000
 #What the hell???
@@ -21,8 +21,8 @@ factories:
     setupcost:
       Souls:
         material: ENDER_EYE
-        amount: 7
         name: Souls
+        amount: 7
         lore:
           - Activity reward used in factories
     recipes:
@@ -30,6 +30,7 @@ factories:
     - Upgrade_to_Coal_Burner
     - Upgrade_to_Aesthetics_Factory
     - Upgrade_to_Botanical_Gardens
+    - Upgrade_to_Printing_Press
     - Upgrade_to_Basic_Cauldron
     - Upgrade_to_Intermediate_Factory
     - Accidental_Repair
@@ -51,6 +52,18 @@ factories:
     recipes:
      - Burn_Warped_Stem
      - Burn_Crimson_Stem
+     - Accidental_Repair
+  Printing_Press:
+    type: FCCUPGRADE
+    name: Printing Press
+    recipes:
+     - Bind_Book
+     - Bind_Writable_Books
+     - Craft_Printing_Plate
+     - Craft_Printing_Plate_JSON
+     - Print_Book
+     - Print_Note
+     - Print_Secure_Note
      - Accidental_Repair
   Aesthetics_Factory:
     type: FCCUPGRADE
@@ -690,6 +703,106 @@ recipes:
       Chains:
         material: CHAIN
         amount: 3
+  Bind_Book:
+    production_time: 8s
+    name: Bind Book
+    type: PRODUCTION
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 3
+      Leather:
+        material: LEATHER
+        amount: 1
+    output:
+      Book:
+        material: BOOK
+        amount: 1
+  Bind_Writable_Books:
+    production_time: 8s
+    name: Bind Writable Books
+    type: PRODUCTION
+    input:
+      Books:
+        material: BOOK
+        amount: 3
+      Black_Dye:
+        material: BLACK_DYE
+        amount: 3
+    output:
+      Writable_Books:
+        material: WRITABLE_BOOK
+        amount: 3
+  Craft_Printing_Plate:
+    type: PRINTINGPLATE
+    name: Craft Printing Plate
+    production_time: 8s
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 1
+    output:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Craft_Printing_Plate_JSON:
+    type: PRINTINGPLATEJSON
+    name: Craft JSON Printing Plate
+    production_time: 8s
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 1
+    output:
+      JSON_Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Print_Book:
+    type: PRINTBOOK
+    name: Print Book
+    production_time: 8s
+    outputamount: 6
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 18
+      Black_Dye:
+        material: BLACK_DYE
+        amount: 1
+    printingplate:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Print_Note:
+    type: PRINTNOTE
+    name: Print Note
+    production_time: 8s
+    securenote: false
+    title: Pamphlet
+    outputamount: 3
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 5
+    printingplate:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Print_Secure_Note:
+    type: PRINTNOTE
+    name: Print Secure Note
+    production_time: 8s
+    securenote: true
+    title: Secure Note
+    outputamount: 3
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 5
+    printingplate:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
 
   #INTERMEDIATE RECIPES
 
@@ -1153,16 +1266,10 @@ recipes:
         material: NETHERITE_HOE
         amount: 8
   Craft_Bastion:
-    production_time: 8s
+    production_time: 1s
     name: Craft Bastion
     type: PRODUCTION
     input:
-      Soul:
-        material: ENDER_EYE
-        amount: 1
-        name: Souls
-        lore:
-          - Activity reward used in factories
       Emerald_Block:
         material: EMERALD_BLOCK
         amount: 1
@@ -1220,8 +1327,8 @@ recipes:
           type: WATER
       Souls:
         material: ENDER_EYE
-        amount: 1
         name: Souls
+        amount: 1
         lore:
           - Activity reward used in factories
     output:
@@ -1246,8 +1353,8 @@ recipes:
           type: WATER
       Souls:
         material: ENDER_EYE
-        amount: 1
         name: Souls
+        amount: 1
         lore:
           - Activity reward used in factories
     output:
@@ -1272,8 +1379,8 @@ recipes:
           type: WATER
       Souls:
         material: ENDER_EYE
-        amount: 1
         name: Souls
+        amount: 1
         lore:
           - Activity reward used in factories
     output:
@@ -1458,6 +1565,18 @@ recipes:
         material: COAL
         amount: 64
     factory: Coal Burner
+  Upgrade_to_Printing_Press:
+    production_time: 8s
+    name: Upgrade to Coal Burner
+    type: UPGRADE
+    input:
+      Book:
+        material: BOOK
+        amount: 4
+      Black_Dye:
+        material: BLACK_DYE
+        amount: 4
+    factory: Printing Press
   Upgrade_to_Aesthetics_Factory:
     production_time: 8s
     name: Upgrade to Aesthetics Factory
