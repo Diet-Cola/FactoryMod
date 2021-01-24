@@ -45,6 +45,7 @@ factories:
      - Smelt_into_Cracked_Nether_Brick
      - Smelt_into_Glass
      - Smelt_Gravel_and_Basalt_to_Cobble
+     - Smelt_Cobble_into_Stone
      - Accidental_Repair
   Coal_Burner:
     type: FCCUPGRADE
@@ -78,6 +79,7 @@ factories:
      - Craft_Clay_Blocks
      - Craft_Dried_Kelp
      - Craft_Chains
+     - Breakdown_Quartz_Ore
      - Accidental_Repair
   Botanical_Gardens:
     type: FCCUPGRADE
@@ -328,7 +330,7 @@ recipes:
         material: COAL
         amount: 128
   Grind_Gravel_into_Sand:
-    production_time: 8s
+    production_time: 1s
     name: Grind Gravel into Sand
     type: PRODUCTION
     input:
@@ -346,7 +348,7 @@ recipes:
         material: SAND
         amount: 32
   Craft_Diorite:
-    production_time: 8s
+    production_time: 1s
     name: Craft Diorite
     type: PRODUCTION
     input:
@@ -361,7 +363,7 @@ recipes:
         material: DIORITE
         amount: 96
   Craft_Andesite:
-    production_time: 8s
+    production_time: 1s
     name: Craft Andesite
     type: PRODUCTION
     input:
@@ -376,7 +378,7 @@ recipes:
         material: ANDESITE
         amount: 96
   Craft_Granite:
-    production_time: 8s
+    production_time: 1s
     name: Craft Granite
     type: PRODUCTION
     input:
@@ -460,7 +462,7 @@ recipes:
         material: MYCELIUM
         amount: 16
   Craft_Dried_Kelp:
-    production_time: 8s
+    production_time: 1s
     name: Craft Dried Kelp Blocks
     type: PRODUCTION
     input:
@@ -475,7 +477,7 @@ recipes:
         material: DRIED_KELP_BLOCK
         amount: 24
   Craft_Clay_Blocks:
-    production_time: 8s
+    production_time: 1s
     name: Craft Clay Blocks
     type: PRODUCTION
     input:
@@ -494,7 +496,7 @@ recipes:
         material: CLAY
         amount: 32
   Craft_Bell:
-    production_time: 8s
+    production_time: 1s
     name: Craft Bell
     type: PRODUCTION
     input:
@@ -509,7 +511,7 @@ recipes:
         material: BELL
         amount: 1
   Craft_Cobwebs:
-    production_time: 8s
+    production_time: 1s
     name: Craft Cobwebs
     type: PRODUCTION
     input:
@@ -555,7 +557,7 @@ recipes:
   Random_Roots_to_Flowers:
     type: RANDOM
     name: Grow Roots into Flowers
-    production_time: 8s
+    production_time: 1s
     input:
       Warped_Roots:
         material: WARPED_ROOTS
@@ -692,7 +694,7 @@ recipes:
           material: TURTLE_EGG
           amount: 1
   Craft_Chains:
-    production_time: 8s
+    production_time: 1s
     name: Craft Chains
     type: PRODUCTION
     input:
@@ -702,7 +704,7 @@ recipes:
     output:
       Chains:
         material: CHAIN
-        amount: 3
+        amount: 12
   Bind_Book:
     production_time: 8s
     name: Bind Book
@@ -803,6 +805,30 @@ recipes:
       Printing_Plate:
         material: OAK_TRAPDOOR
         amount: 1
+  Breakdown_Quartz_Ore:
+    production_time: 1s
+    name: Breakdown Quartz Ore
+    type: PRODUCTION
+    input:
+      Quartz_Ore:
+        material: NETHER_QUARTZ_ORE
+        amount: 16
+    output:
+      Quartz:
+        material: QUARTZ
+        amount: 48
+  Smelt_Cobble_into_Stone:
+    production_time: 8s
+    name: Smelt Cobblestone into Stone
+    type: PRODUCTION
+    input:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 64
+    output:
+      Stone:
+        material: STONE
+        amount: 96
 
   #INTERMEDIATE RECIPES
 
@@ -1104,7 +1130,8 @@ recipes:
         material: SADDLE
         amount: 8
   Compress_Items:
-    production_time: 8s
+    production_time: 1s
+    fuel_consumption_intervall: 99999s
     name: Compress Items
     type: COMPACT
     input:
@@ -1117,7 +1144,8 @@ recipes:
     excluded_materials:
       - BOOK
   Decompact_Items:
-    production_time: 8s
+    production_time: 1s
+    fuel_consumption_intervall: 99999s
     name: Decompact Items
     type: DECOMPACT
     input:
@@ -1433,8 +1461,8 @@ recipes:
       Warped_Wart_Block:
         material: WARPED_WART_BLOCK
         amount: 256
-      Crimson_Roots:
-        material: CRIMSON_ROOTS
+      Warped_Roots:
+        material: WARPED_ROOTS
         amount: 128
       Water_Bottle:
         material: POTION
@@ -1464,7 +1492,10 @@ recipes:
         amount: 256
       Crimson_Roots:
         material: CRIMSON_ROOTS
-        amount: 128
+        amount: 64
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 64
       Water_Bottle:
         material: POTION
         amount: 1
@@ -1567,7 +1598,7 @@ recipes:
     factory: Coal Burner
   Upgrade_to_Printing_Press:
     production_time: 8s
-    name: Upgrade to Coal Burner
+    name: Upgrade to Printing Press
     type: UPGRADE
     input:
       Book:
@@ -1645,7 +1676,7 @@ recipes:
     factory: Diamond Armoury
   Upgrade_to_Diamond_Tools:
     production_time: 8s
-    name: Upgrade to Diamond Armoury
+    name: Upgrade to Diamond Tools
     type: UPGRADE
     input:
       Diamond_Block:
@@ -1696,12 +1727,9 @@ recipes:
       Iron_Block:
         material: IRON_BLOCK
         amount: 32
-      Crates:
+      Chests:
         material: CHEST
         amount: 32
-        name: Crate
-        lore:
-          - Crate - Used to Compact Items!
     factory: Compactor
   Upgrade_to_Intermediate_Cauldron:
     production_time: 8s
