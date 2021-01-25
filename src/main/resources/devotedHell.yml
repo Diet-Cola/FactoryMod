@@ -86,6 +86,7 @@ factories:
     name: Botanical Gardens
     recipes:
      - Random_Roots_to_Flowers
+     - Random_Dye_to_Colour
      - Cleanse_Magma_to_Slime
      - Grow_Dirt
      - Grow_Podzol
@@ -829,6 +830,97 @@ recipes:
       Stone:
         material: STONE
         amount: 96
+  #No I will not conform to americanism here
+  Random_Dye_to_Colour:
+    type: RANDOM
+    name: Convert White Dye to Colour
+    production_time: 1s
+    input:
+      White_Dye:
+        material: WHITE_DYE
+        amount: 1
+    outputs:
+      display: RED_DYE
+      White:
+        chance: 0.0625
+        White:
+          material: WHITE_DYE
+          amount: 1
+      Orange:
+        chance: 0.0625
+        Orange:
+          material: ORANGE_DYE
+          amount: 1
+      Magenta:
+        chance: 0.0625
+        Magenta:
+          material: MAGENTA_DYE
+          amount: 1
+      Light_Blue:
+        chance: 0.0625
+        Light_Blue:
+          material: LIGHT_BLUE_DYE
+          amount: 1
+      Yellow:
+        chance: 0.0625
+        Yellow:
+          material: YELLOW_DYE
+          amount: 1
+      Lime:
+        chance: 0.0625
+        Lime:
+          material: LIME_DYE
+          amount: 1
+      Pink:
+        chance: 0.0625
+        Pink:
+          material: PINK_DYE
+          amount: 1
+      Gray:
+        chance: 0.0625
+        Gray:
+          material: GRAY_DYE
+          amount: 1
+      Light_Gray:
+        chance: 0.0625
+        Light_Gray:
+          material: LIGHT_GRAY_DYE
+          amount: 1
+      Cyan:
+        chance: 0.0625
+        Cyan:
+          material: CYAN_DYE
+          amount: 1
+      Purple:
+        chance: 0.0625
+        Purple:
+          material: PURPLE_DYE
+          amount: 1
+      Blue:
+        chance: 0.0625
+        Blue:
+          material: BLUE_DYE
+          amount: 1
+      Brown:
+        chance: 0.0625
+        Brown:
+          material: BROWN_DYE
+          amount: 1
+      Green:
+        chance: 0.0625
+        Green:
+          material: GREEN_DYE
+          amount: 1
+      Red:
+        chance: 0.0625
+        Red:
+          material: RED_DYE
+          amount: 1
+      Black:
+        chance: 0.0625
+        Black:
+          material: BLACK_DYE
+          amount: 1
 
   #INTERMEDIATE RECIPES
 
