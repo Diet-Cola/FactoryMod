@@ -42,6 +42,7 @@ factories:
     name: Smelter  
     recipes:
      - Smelt_into_Nether_Bricks
+     - Smelt_Netherrack_into_Netherbrick
      - Smelt_into_Cracked_Nether_Brick
      - Smelt_into_Glass
      - Smelt_Gravel_and_Basalt_to_Cobble
@@ -720,7 +721,7 @@ recipes:
     output:
       Book:
         material: BOOK
-        amount: 1
+        amount: 3
   Bind_Writable_Books:
     production_time: 8s
     name: Bind Writable Books
@@ -817,7 +818,7 @@ recipes:
     output:
       Quartz:
         material: QUARTZ
-        amount: 48
+        amount: 96
   Smelt_Cobble_into_Stone:
     production_time: 8s
     name: Smelt Cobblestone into Stone
@@ -921,6 +922,18 @@ recipes:
         Black:
           material: BLACK_DYE
           amount: 1
+  Smelt_Netherrack_into_Netherbrick:
+    production_time: 8s
+    name: Smelt Netherrack into Netherbrick
+    type: PRODUCTION
+    input:
+      Netherrack:
+        material: NETHERRACK
+        amount: 64
+    output:
+      Netherbrick:
+        material: NETHER_BRICKS
+        amount: 96
 
   #INTERMEDIATE RECIPES
 
