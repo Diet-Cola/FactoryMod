@@ -47,6 +47,8 @@ factories:
      - Smelt_into_Glass
      - Smelt_Gravel_and_Basalt_to_Cobble
      - Smelt_Cobble_into_Stone
+     - Smelt_Stone_into_Smooth_Stone
+     - Smelt_Quartz_into_Smooth_Quartz
      - Accidental_Repair
   Coal_Burner:
     type: FCCUPGRADE
@@ -489,10 +491,6 @@ recipes:
       Gravel:
         material: GRAVEL
         amount: 8
-      Water_Bottle:
-        material: POTION
-        potion_effects:
-          type: WATER
     output:
       Clay_Blocks:
         material: CLAY
@@ -708,7 +706,7 @@ recipes:
         material: CHAIN
         amount: 12
   Bind_Book:
-    production_time: 8s
+    production_time: 1s
     name: Bind Book
     type: PRODUCTION
     input:
@@ -723,7 +721,7 @@ recipes:
         material: BOOK
         amount: 3
   Bind_Writable_Books:
-    production_time: 8s
+    production_time: 1s
     name: Bind Writable Books
     type: PRODUCTION
     input:
@@ -740,7 +738,7 @@ recipes:
   Craft_Printing_Plate:
     type: PRINTINGPLATE
     name: Craft Printing Plate
-    production_time: 8s
+    production_time: 1s
     input:
       Iron_Ingot:
         material: IRON_INGOT
@@ -752,7 +750,7 @@ recipes:
   Craft_Printing_Plate_JSON:
     type: PRINTINGPLATEJSON
     name: Craft JSON Printing Plate
-    production_time: 8s
+    production_time: 1s
     input:
       Iron_Ingot:
         material: IRON_INGOT
@@ -764,7 +762,7 @@ recipes:
   Print_Book:
     type: PRINTBOOK
     name: Print Book
-    production_time: 8s
+    production_time: 1s
     outputamount: 6
     input:
       Bamboo:
@@ -780,7 +778,7 @@ recipes:
   Print_Note:
     type: PRINTNOTE
     name: Print Note
-    production_time: 8s
+    production_time: 1s
     securenote: false
     title: Pamphlet
     outputamount: 3
@@ -795,7 +793,7 @@ recipes:
   Print_Secure_Note:
     type: PRINTNOTE
     name: Print Secure Note
-    production_time: 8s
+    production_time: 1s
     securenote: true
     title: Secure Note
     outputamount: 3
@@ -820,7 +818,7 @@ recipes:
         material: QUARTZ
         amount: 96
   Smelt_Cobble_into_Stone:
-    production_time: 8s
+    production_time: 1s
     name: Smelt Cobblestone into Stone
     type: PRODUCTION
     input:
@@ -923,7 +921,7 @@ recipes:
           material: BLACK_DYE
           amount: 1
   Smelt_Netherrack_into_Netherbrick:
-    production_time: 8s
+    production_time: 1s
     name: Smelt Netherrack into Netherbrick
     type: PRODUCTION
     input:
@@ -933,6 +931,30 @@ recipes:
     output:
       Netherbrick:
         material: NETHER_BRICKS
+        amount: 96
+  Smelt_Stone_into_Smooth_Stone:
+    production_time: 1s
+    name: Smelt Stone into Smooth Stone
+    type: PRODUCTION
+    input:
+      Stone:
+        material: STONE
+        amount: 64
+    output:
+      Smooth_Stone:
+        material: SMOOTH_STONE
+        amount: 96
+  Smelt_Quartz_into_Smooth_Quartz:
+    production_time: 1s
+    name: Smelt Quartz into Smooth Quartz
+    type: PRODUCTION
+    input:
+      Quartz_Block:
+        material: QUARTZ_BLOCK
+        amount: 64
+    output:
+      Smooth_Stone:
+        material: SMOOTH_QUARTZ
         amount: 96
 
   #INTERMEDIATE RECIPES
