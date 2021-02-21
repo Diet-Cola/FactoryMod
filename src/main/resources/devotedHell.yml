@@ -142,6 +142,7 @@ factories:
     type: FCCUPGRADE
     name: Ore Forge
     recipes:
+     - Breakdown_Coal_Ore 
      - Breakdown_Iron_Ore
      - Breakdown_Redstone_Ore
      - Breakdown_Gold_Ore
@@ -1139,6 +1140,18 @@ recipes:
       Prismarine_Crystal_Byproduct:
         material: PRISMARINE_CRYSTALS
         amount: 16
+  Breakdown_Coal_Ore:
+    production_time: 8s
+    name: Breakdown Coal Ore
+    type: PRODUCTION
+    input:
+      Coal_Ore:
+        material: COAL_ORE
+        amount: 64
+    output:
+      Coal_Block:
+        material: COAL_BLOCK
+        amount: 32
   Forge_Rails:
     production_time: 8s
     name: Forge Rails
@@ -1458,12 +1471,12 @@ recipes:
           - Compacted Item
     output:
       Bastion:
-        material: SPONGE
-        amount: 1
+        material: ENDER_CHEST
+        amount: 5
         lore:
           - This bastion will protect you from grief,
           - Protects only the block and above where it is placed,
-          - Takes ~5 mins of placing to break.
+          - Takes ~10 mins of placing to break.
   XP_1_A:
     production_time: 8s
     name: Produce Basic XP A
@@ -1664,7 +1677,7 @@ recipes:
           - Compacted Item
       Shroomlight:
         material: SHROOMLIGHT
-        amount: 8
+        amount: 6
         lore:
           - Compacted Item
       Crimson_Roots:
