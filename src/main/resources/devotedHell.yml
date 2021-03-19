@@ -74,6 +74,7 @@ factories:
     name: Aesthetics Factory
     recipes:
      - Grind_Gravel_into_Sand
+     - Grind_Gravel_into_Red_Sand
      - Craft_Diorite
      - Craft_Andesite
      - Craft_Granite
@@ -83,6 +84,8 @@ factories:
      - Craft_Dried_Kelp
      - Craft_Chains
      - Breakdown_Quartz_Ore
+     - Condense_Sand_to_Sandstone
+     - Condense_Red_Sand_to_Red_Sandstone
      - Accidental_Repair
   Botanical_Gardens:
     type: FCCUPGRADE
@@ -351,6 +354,24 @@ recipes:
     output:
       Sand:
         material: SAND
+        amount: 32
+  Grind_Gravel_into_Red_Sand:
+    production_time: 1s
+    name: Grind Gravel into Red Sand
+    type: PRODUCTION
+    input:
+      Soul_Sand:
+        material: SOUL_SAND
+        amount: 128
+      Soul_Soil:
+        material: SOUL_SOIL
+        amount: 128
+      Gravel:
+        material: GRAVEL
+        amount: 64
+    output:
+      Red_Sand:
+        material: RED_SAND
         amount: 32
   Craft_Diorite:
     production_time: 1s
@@ -957,6 +978,30 @@ recipes:
       Smooth_Stone:
         material: SMOOTH_QUARTZ
         amount: 96
+  Condense_Sand_to_Sandstone:
+    production_time: 1s
+    name: Condense Sand to Sandstone
+    type: PRODUCTION
+    input:
+      Sand:
+        material: SAND
+        amount: 32
+    output:
+      Sandstone:
+        material: SANDSTONE
+        amount: 512
+  Condense_Red_Sand_to_Red_Sandstone:
+    production_time: 1s
+    name: Condense Red Sand to Red Sandstone
+    type: PRODUCTION
+    input:
+      Red_Sand:
+        material: RED_SAND
+        amount: 32
+    output:
+      Red_Sandstone:
+        material: RED_SANDSTONE
+        amount: 512
 
   #INTERMEDIATE RECIPES
 
@@ -1147,11 +1192,11 @@ recipes:
     input:
       Coal_Ore:
         material: COAL_ORE
-        amount: 64
+        amount: 48
     output:
       Coal_Block:
         material: COAL_BLOCK
-        amount: 32
+        amount: 16
   Forge_Rails:
     production_time: 8s
     name: Forge Rails
@@ -1299,7 +1344,7 @@ recipes:
     input:
       Iron_Ingot:
         material: IRON_INGOT
-        amount: 12
+        amount: 8
       Chests:
         material: CHEST
         amount: 64
@@ -1473,6 +1518,7 @@ recipes:
       Bastion:
         material: ENDER_CHEST
         amount: 5
+        name: Bastion
         lore:
           - This bastion will protect you from grief,
           - Protects only the block and above where it is placed,
