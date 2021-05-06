@@ -8,6 +8,7 @@ import static vg.civcraft.mc.civmodcore.util.ConfigParsing.parseTimeAsTicks;
 import com.github.igotyou.FactoryMod.eggs.FurnCraftChestEgg;
 import com.github.igotyou.FactoryMod.eggs.IFactoryEgg;
 import com.github.igotyou.FactoryMod.eggs.PipeEgg;
+import com.github.igotyou.FactoryMod.eggs.PortalEgg;
 import com.github.igotyou.FactoryMod.eggs.SorterEgg;
 import com.github.igotyou.FactoryMod.listeners.NetherPortalListener;
 import com.github.igotyou.FactoryMod.recipes.AOERepairRecipe;
@@ -35,6 +36,7 @@ import com.github.igotyou.FactoryMod.recipes.scaling.ProductionRecipeModifier;
 import com.github.igotyou.FactoryMod.structures.BlockFurnaceStructure;
 import com.github.igotyou.FactoryMod.structures.FurnCraftChestStructure;
 import com.github.igotyou.FactoryMod.structures.PipeStructure;
+import com.github.igotyou.FactoryMod.structures.PortalStructure;
 import com.github.igotyou.FactoryMod.utility.FactoryGarbageCollector;
 import com.github.igotyou.FactoryMod.utility.FactoryModGUI;
 import java.io.File;
@@ -320,6 +322,18 @@ public class ConfigParser {
 				plugin.warning(String.format("SORTER %s specified with no setup cost, skipping", egg.getName()));
 			}
 			break;
+		case "PORTAL":
+			egg = parsePortal(config);
+			if (egg == null) {
+				break;
+			}
+			ItemMap portalSetup = parseItemMap(config.getConfigurationSection("setupcost"));
+			if (portalSetup.getTotalUniqueItemAmount() > 0) {
+				manager.addFactoryEgg(PortalStructure.class, portalSetup, egg);
+			} else {
+				plugin.warning(String.format("PORTAL %s specified with no setup cost, skipping", egg.getName()));
+			}
+			break;
 		default:
 			plugin.severe("Could not identify factory type " + config.getString("type"));
 		}
@@ -329,6 +343,24 @@ public class ConfigParser {
 			plugin.warning(String.format("Failed to set up factory %s", config.getCurrentPath()));
 		}
 
+	}
+
+	public PortalEgg parsePortal(ConfigurationSection config) {
+		String name = config.getString("name");
+		double citadelBreakReduction = config.getDouble("citadelBreakReduction", 1.0);
+		String targetWorld = config.getString("target_world", "world_nether");
+		double targetLocationMultipler = config.getDouble("target_location_multipler", 1.0);
+		double returnRate;
+		if (config.contains("return_rate")) {
+			returnRate = config.getDouble("return_rate");
+		} else {
+			returnRate = defaultReturnRate;
+		}
+		ItemMap setupCost = null;
+		if (config.isConfigurationSection("setupcost")) {
+			setupCost = parseItemMap(config.getConfigurationSection("setupcost"));
+		}
+		return new PortalEgg(name, targetWorld, returnRate, citadelBreakReduction, setupCost, targetLocationMultipler);
 	}
 
 	public SorterEgg parseSorter(ConfigurationSection config) {

@@ -12,6 +12,7 @@ import com.github.igotyou.FactoryMod.structures.BlockFurnaceStructure;
 import com.github.igotyou.FactoryMod.structures.FurnCraftChestStructure;
 import com.github.igotyou.FactoryMod.structures.MultiBlockStructure;
 import com.github.igotyou.FactoryMod.structures.PipeStructure;
+import com.github.igotyou.FactoryMod.structures.PortalStructure;
 import com.github.igotyou.FactoryMod.utility.FactoryModGUI;
 import com.github.igotyou.FactoryMod.utility.FileHandler;
 import com.github.igotyou.FactoryMod.utility.LoggingUtils;
@@ -26,6 +27,7 @@ import java.util.Set;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Barrel;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Dispenser;
@@ -91,6 +93,11 @@ public class FactoryModManager {
 		// pipe
 		possibleCenterBlocks.add(Material.DISPENSER);
 		possibleInteractionBlock.add(Material.DISPENSER);
+
+		//portal
+		possibleCenterBlocks.add(Material.LODESTONE);
+		possibleInteractionBlock.add(Material.LODESTONE);
+		possibleInteractionBlock.add(Material.CRYING_OBSIDIAN);
 	}
 
 	/**
@@ -330,6 +337,42 @@ public class FactoryModManager {
 					}
 				} else {
 					p.sendMessage(ChatColor.RED + "This sorter is not set up the right way");
+				}
+			}
+			if (b.getType() == Material.LODESTONE) {
+				PortalStructure portalStructure = new PortalStructure(b);
+				if (portalStructure.isComplete()) {
+					if (portalStructure.blockedByExistingFactory()) {
+						p.sendMessage(ChatColor.RED
+								+ "At least one of the blocks of this portal is already part of another portal!");
+						return;
+					}
+					HashMap<ItemMap, IFactoryEgg> eggs = factoryCreationRecipes.get(PortalStructure.class);
+					if (eggs != null) {
+						IFactoryEgg egg = null;
+						for (Entry<ItemMap, IFactoryEgg> entry : eggs.entrySet()) {
+							if (entry.getKey().containedExactlyIn(
+									((Barrel) (portalStructure.getBarrel().getBlock().getState())).getInventory())) {
+								egg = entry.getValue();
+								break;
+							}
+						}
+						if (egg != null) {
+							Factory f = egg.hatch(portalStructure, p);
+							if (f != null) {
+								((Barrel) (portalStructure.getBarrel().getBlock().getState())).getInventory().clear();
+								addFactory(f);
+								f.activate();
+								p.sendMessage(ChatColor.GREEN + "Successfully created " + f.getName());
+								LoggingUtils.log(f.getLogData() + " was created by " + p.getName());
+							}
+
+						} else {
+							p.sendMessage(ChatColor.RED + "There is no portal with the given creation materials");
+						}
+					}
+				} else {
+					p.sendMessage(ChatColor.RED + "This portal is not set up the right way");
 				}
 			}
 		}

@@ -5,6 +5,7 @@ import com.github.igotyou.FactoryMod.FactoryModManager;
 import com.github.igotyou.FactoryMod.eggs.FurnCraftChestEgg;
 import com.github.igotyou.FactoryMod.eggs.IFactoryEgg;
 import com.github.igotyou.FactoryMod.eggs.PipeEgg;
+import com.github.igotyou.FactoryMod.eggs.PortalEgg;
 import com.github.igotyou.FactoryMod.eggs.SorterEgg;
 import com.github.igotyou.FactoryMod.factories.Factory;
 import com.github.igotyou.FactoryMod.factories.FurnCraftChestFactory;
@@ -38,11 +39,11 @@ public class FileHandler {
 	private File saveFile;
 	private File backup;
 
-	private Map <String, String> factoryRenames;
+	private Map<String, String> factoryRenames;
 
 	private static int saveFileVersion = 2;
 
-	public FileHandler(FactoryModManager manager, Map <String, String> factoryRenames) {
+	public FileHandler(FactoryModManager manager, Map<String, String> factoryRenames) {
 		plugin = FactoryMod.getInstance();
 		this.factoryRenames = factoryRenames;
 		this.manager = manager;
@@ -84,18 +85,17 @@ public class FileHandler {
 					config.set(current + ".selectedRecipe", fccf
 							.getCurrentRecipe().getName());
 					config.set(current + ".autoSelect", fccf.isAutoSelect());
-					List <String> recipeList = new LinkedList<String>();
-					for(IRecipe rec : fccf.getRecipes()) {
+					List<String> recipeList = new LinkedList<String>();
+					for (IRecipe rec : fccf.getRecipes()) {
 						recipeList.add(rec.getIdentifier());
 					}
 					config.set(current + ".recipes", recipeList);
 					if (fccf.getActivator() == null) {
 						config.set(current + ".activator", "null");
-					}
-					else {
+					} else {
 						config.set(current + ".activator", fccf.getActivator().toString());
 					}
-					for(IRecipe i : ((FurnCraftChestFactory) f).getRecipes()) {
+					for (IRecipe i : ((FurnCraftChestFactory) f).getRecipes()) {
 						config.set(current + ".runcounts." + i.getName(), fccf.getRunCount(i));
 						config.set(current + ".recipeLevels." + i.getName(), fccf.getRecipeLevel(i));
 					}
@@ -133,9 +133,9 @@ public class FileHandler {
 		}
 	}
 
-	private void configureLocation(ConfigurationSection config, List <Location> locations) {
+	private void configureLocation(ConfigurationSection config, List<Location> locations) {
 		int count = 0;
-		for(Location loc : locations) {
+		for (Location loc : locations) {
 			String identifier = "a" + count++ + serializeLocation(loc);
 			config.set(identifier + ".world", loc.getWorld().getName());
 			config.set(identifier + ".x", loc.getBlockX());
@@ -158,7 +158,8 @@ public class FileHandler {
 				plugin.info("Backup file found, loading backup");
 				loadFromFile(backup, eggs);
 			} else {
-				plugin.warning("No backup save file found. If you are not starting this plugin for the first time you should be worried now");
+				plugin.warning(
+						"No backup save file found. If you are not starting this plugin for the first time you should be worried now");
 			}
 		}
 	}
@@ -177,8 +178,8 @@ public class FileHandler {
 			String name = current.getString("name");
 			int runtime = current.getInt("runtime");
 			List<Location> blocks = new LinkedList<>();
-			Set <String> blockKeys = current.getConfigurationSection("blocks").getKeys(false);
-			Collections.sort(new LinkedList <String> (blockKeys));
+			Set<String> blockKeys = current.getConfigurationSection("blocks").getKeys(false);
+			Collections.sort(new LinkedList<String>(blockKeys));
 			for (String blockKey : blockKeys) {
 				ConfigurationSection currSec = current.getConfigurationSection(
 						"blocks").getConfigurationSection(blockKey);
@@ -190,180 +191,198 @@ public class FileHandler {
 				blocks.add(new Location(w, x, y, z));
 			}
 			switch (type) {
-			case "FCC":
-				if (loadedVersion == 1) {
-					//need to sort the locations properly, because they werent previously
-					List <Location> sortedList = new LinkedList<>();
-					int totalX = 0;
-					int totalY = 0;
-					int totalZ = 0;
-					for(Location loc : blocks) {
-						totalX += loc.getBlockX();
-						totalY += loc.getBlockY();
-						totalZ += loc.getBlockZ();
-					}
-					Location center = new Location(blocks.get(0).getWorld(), totalX / 3, totalY / 3, totalZ / 3);
-					if (!blocks.contains(center)) {
-						plugin.warning("Failed to convert location for factory at " + blocks.get(0).toString() + "; calculated center: " + center.toString());
-					}
-					else {
-					blocks.remove(center);
-					sortedList.add(center);
-					//we cant guarantee that this will work, it might very well fail for partially broken factories, but it's the best thing I got
-						if (blocks.get(0).getBlock().getType() == Material.CHEST
-								|| blocks.get(0).getBlock().getType() == Material.TRAPPED_CHEST) {
-							sortedList.add(blocks.get(1));
-							sortedList.add(blocks.get(0));
+				case "FCC":
+					if (loadedVersion == 1) {
+						//need to sort the locations properly, because they werent previously
+						List<Location> sortedList = new LinkedList<>();
+						int totalX = 0;
+						int totalY = 0;
+						int totalZ = 0;
+						for (Location loc : blocks) {
+							totalX += loc.getBlockX();
+							totalY += loc.getBlockY();
+							totalZ += loc.getBlockZ();
 						}
-						else {
-							sortedList.add(blocks.get(0));
-							sortedList.add(blocks.get(1));
+						Location center = new Location(blocks.get(0).getWorld(), totalX / 3, totalY / 3, totalZ / 3);
+						if (!blocks.contains(center)) {
+							plugin.warning("Failed to convert location for factory at " + blocks.get(0).toString() +
+									"; calculated center: " + center.toString());
+						} else {
+							blocks.remove(center);
+							sortedList.add(center);
+							//we cant guarantee that this will work, it might very well fail for partially broken factories, but it's the best thing I got
+							if (blocks.get(0).getBlock().getType() == Material.CHEST
+									|| blocks.get(0).getBlock().getType() == Material.TRAPPED_CHEST) {
+								sortedList.add(blocks.get(1));
+								sortedList.add(blocks.get(0));
+							} else {
+								sortedList.add(blocks.get(0));
+								sortedList.add(blocks.get(1));
+							}
+							blocks = sortedList;
 						}
-						blocks = sortedList;
-					}
 
 
-				}
-				FurnCraftChestEgg egg = (FurnCraftChestEgg) eggs.get(name.toLowerCase());
-				if (egg == null) {
-					String replaceName = factoryRenames.get(name);
-					if (replaceName != null) {
-						egg = (FurnCraftChestEgg) eggs.get(replaceName);
 					}
+					FurnCraftChestEgg egg = (FurnCraftChestEgg) eggs.get(name.toLowerCase());
 					if (egg == null) {
-						plugin.warning("Save file contained factory named "
-								+ name
-								+ " , but no factory with this name was found in the config");
-						continue;
-					}
-					else {
-						name = replaceName;
-					}
-				}
-				int health = current.getInt("health");
-				long breakTime = current.getLong("breakTime", 0);
-				String selectedRecipe = current.getString("selectedRecipe");
-				List <String> recipes = current.getStringList("recipes");
-
-				// Now check for recipes marked as force include that should be on this list.
-				for (IRecipe irecipe : egg.getRecipes()) {
-					if (manager.isForceInclude(irecipe.getIdentifier())) {
-						if (!recipes.contains(irecipe.getIdentifier())) { // it's not there, add it.
-							plugin.info("Augmenting prior " + name + " factory at " + 
-									blocks.get(0).toString() + " with force include recipe " +
-									irecipe.getName());
-							recipes.add(irecipe.getIdentifier());
+						String replaceName = factoryRenames.get(name);
+						if (replaceName != null) {
+							egg = (FurnCraftChestEgg) eggs.get(replaceName);
+						}
+						if (egg == null) {
+							plugin.warning("Save file contained factory named "
+									+ name
+									+ " , but no factory with this name was found in the config");
+							continue;
+						} else {
+							name = replaceName;
 						}
 					}
-				}
+					int health = current.getInt("health");
+					long breakTime = current.getLong("breakTime", 0);
+					String selectedRecipe = current.getString("selectedRecipe");
+					List<String> recipes = current.getStringList("recipes");
 
-				boolean autoSelect = current.getBoolean("autoSelect", false);
-				if (recipes == null) {
-					recipes = new LinkedList<>();
-				}
-				FurnCraftChestFactory fac = (FurnCraftChestFactory) egg.revive(blocks, health, selectedRecipe,
-						runtime, breakTime, recipes);
-				String activator = current.getString("activator", "null");
-				UUID acti;
-				if (activator.equals("null")) {
-					acti = null;
-				}
-				else {
-					acti = UUID.fromString(activator);
-				}
-				fac.setActivator(acti);
-				ConfigurationSection runCounts = current.getConfigurationSection("runcounts");
-				if(runCounts != null) {
-					for(String countKey : runCounts.getKeys(false)) {
-						int runs = runCounts.getInt(countKey);
-						for(IRecipe r : fac.getRecipes()) {
-							if (r.getName().equals(countKey)) {
-								fac.setRunCount(r, runs);
-								break;
+					// Now check for recipes marked as force include that should be on this list.
+					for (IRecipe irecipe : egg.getRecipes()) {
+						if (manager.isForceInclude(irecipe.getIdentifier())) {
+							if (!recipes.contains(irecipe.getIdentifier())) { // it's not there, add it.
+								plugin.info("Augmenting prior " + name + " factory at " +
+										blocks.get(0).toString() + " with force include recipe " +
+										irecipe.getName());
+								recipes.add(irecipe.getIdentifier());
 							}
 						}
 					}
-				}
-				ConfigurationSection recipeLevels = current.getConfigurationSection("recipeLevels");
-				if(recipeLevels != null) {
-					for(String countKey : recipeLevels.getKeys(false)) {
-						int runs = recipeLevels.getInt(countKey);
-						for(IRecipe r : fac.getRecipes()) {
-							if (r.getName().equals(countKey)) {
-								fac.setRecipeLevel(r, runs);
-								break;
+
+					boolean autoSelect = current.getBoolean("autoSelect", false);
+					if (recipes == null) {
+						recipes = new LinkedList<>();
+					}
+					FurnCraftChestFactory fac = (FurnCraftChestFactory) egg.revive(blocks, health, selectedRecipe,
+							runtime, breakTime, recipes);
+					String activator = current.getString("activator", "null");
+					UUID acti;
+					if (activator.equals("null")) {
+						acti = null;
+					} else {
+						acti = UUID.fromString(activator);
+					}
+					fac.setActivator(acti);
+					ConfigurationSection runCounts = current.getConfigurationSection("runcounts");
+					if (runCounts != null) {
+						for (String countKey : runCounts.getKeys(false)) {
+							int runs = runCounts.getInt(countKey);
+							for (IRecipe r : fac.getRecipes()) {
+								if (r.getName().equals(countKey)) {
+									fac.setRunCount(r, runs);
+									break;
+								}
 							}
 						}
 					}
-				}
-				fac.setAutoSelect(autoSelect);
-				manager.addFactory(fac);
-				counter++;
-				break;
-			case "PIPE":
-				PipeEgg pipeEgg = (PipeEgg) eggs.get(name);
-				if (pipeEgg == null) {
-					String replaceName = factoryRenames.get(name);
-					if (replaceName != null) {
-						pipeEgg = (PipeEgg) eggs.get(replaceName);
+					ConfigurationSection recipeLevels = current.getConfigurationSection("recipeLevels");
+					if (recipeLevels != null) {
+						for (String countKey : recipeLevels.getKeys(false)) {
+							int runs = recipeLevels.getInt(countKey);
+							for (IRecipe r : fac.getRecipes()) {
+								if (r.getName().equals(countKey)) {
+									fac.setRecipeLevel(r, runs);
+									break;
+								}
+							}
+						}
 					}
+					fac.setAutoSelect(autoSelect);
+					manager.addFactory(fac);
+					counter++;
+					break;
+				case "PIPE":
+					PipeEgg pipeEgg = (PipeEgg) eggs.get(name);
 					if (pipeEgg == null) {
-						plugin.warning("Save file contained factory named "
-								+ name
-								+ " , but no factory with this name was found in the config");
-						continue;
+						String replaceName = factoryRenames.get(name);
+						if (replaceName != null) {
+							pipeEgg = (PipeEgg) eggs.get(replaceName);
+						}
+						if (pipeEgg == null) {
+							plugin.warning("Save file contained factory named "
+									+ name
+									+ " , but no factory with this name was found in the config");
+							continue;
+						} else {
+							name = replaceName;
+						}
 					}
-					else {
-						name = replaceName;
+					List<Material> mats = new LinkedList<>();
+					if (current.isSet("materials")) {
+						for (String mat : current.getStringList("materials")) {
+							mats.add(Material.valueOf(mat));
+						}
+					} else {
+						mats = null;
 					}
-				}
-				List<Material> mats = new LinkedList<>();
-				if (current.isSet("materials")) {
-					for (String mat : current.getStringList("materials")) {
-						mats.add(Material.valueOf(mat));
+					if (mats.isEmpty()) {
+						mats = null;
 					}
-				} else {
-					mats = null;
-				}
-				if (mats.isEmpty()) {
-					mats = null;
-				}
-				Factory p = pipeEgg.revive(blocks, mats, runtime);
-				manager.addFactory(p);
-				counter++;
-				break;
-			case "SORTER":
-				Map<BlockFace, ItemMap> assignments = new HashMap<>();
-				SorterEgg sorterEgg = (SorterEgg) eggs.get(name);
-				if (sorterEgg == null) {
-					String replaceName = factoryRenames.get(name);
-					if (replaceName != null) {
-						sorterEgg = (SorterEgg) eggs.get(replaceName);
-					}
+					Factory p = pipeEgg.revive(blocks, mats, runtime);
+					manager.addFactory(p);
+					counter++;
+					break;
+				case "SORTER":
+					Map<BlockFace, ItemMap> assignments = new HashMap<>();
+					SorterEgg sorterEgg = (SorterEgg) eggs.get(name);
 					if (sorterEgg == null) {
-						plugin.warning("Save file contained factory named "
-								+ name
-								+ " , but no factory with this name was found in the config");
-						continue;
+						String replaceName = factoryRenames.get(name);
+						if (replaceName != null) {
+							sorterEgg = (SorterEgg) eggs.get(replaceName);
+						}
+						if (sorterEgg == null) {
+							plugin.warning("Save file contained factory named "
+									+ name
+									+ " , but no factory with this name was found in the config");
+							continue;
+						} else {
+							name = replaceName;
+						}
 					}
-					else {
-						name = replaceName;
+					for (String face : current.getConfigurationSection("faces")
+							.getKeys(false)) {
+
+						@SuppressWarnings("unchecked")
+						List<ItemStack> stacks = (List<ItemStack>) current.getConfigurationSection("faces").get(face);
+
+						// it works, okay?
+						ItemMap map = new ItemMap(stacks);
+						assignments.put(BlockFace.valueOf(face), map);
 					}
-				}
-				for (String face : current.getConfigurationSection("faces")
-						.getKeys(false)) {
-
-					@SuppressWarnings("unchecked")
-					List<ItemStack> stacks = (List<ItemStack>) current.getConfigurationSection("faces").get(face);
-
-					// it works, okay?
-					ItemMap map = new ItemMap(stacks);
-					assignments.put(BlockFace.valueOf(face), map);
-				}
-				Factory s = sorterEgg.revive(blocks, assignments, runtime);
-				manager.addFactory(s);
-				counter++;
-				break;
+					Factory s = sorterEgg.revive(blocks, assignments, runtime);
+					manager.addFactory(s);
+					counter++;
+					break;
+				case "PORTAL":
+					PortalEgg portalEgg = (PortalEgg) eggs.get(name);
+					if (portalEgg == null) {
+						String replaceName = factoryRenames.get(name);
+						if (replaceName != null) {
+							portalEgg = (PortalEgg) eggs.get(replaceName);
+						}
+						if (portalEgg == null) {
+							plugin.warning("Save file contained factory named "
+									+ name
+									+ " , but no factory with this name was found in the config");
+							continue;
+						} else {
+							name = replaceName;
+						}
+					}
+					Factory portal = portalEgg.revive(blocks);
+					manager.addFactory(portal);
+					counter++;
+					break;
+				default:
+					FactoryMod.getInstance().getLogger().severe("Couldn't load factory type at " + current.getCurrentPath());
+					break;
 			}
 		}
 		plugin.info("Loaded " + counter + " factory from save file");

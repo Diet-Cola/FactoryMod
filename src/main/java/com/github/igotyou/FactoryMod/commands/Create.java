@@ -5,11 +5,13 @@ import com.github.igotyou.FactoryMod.FactoryModManager;
 import com.github.igotyou.FactoryMod.eggs.FurnCraftChestEgg;
 import com.github.igotyou.FactoryMod.eggs.IFactoryEgg;
 import com.github.igotyou.FactoryMod.eggs.PipeEgg;
+import com.github.igotyou.FactoryMod.eggs.PortalEgg;
 import com.github.igotyou.FactoryMod.eggs.SorterEgg;
 import com.github.igotyou.FactoryMod.factories.Factory;
 import com.github.igotyou.FactoryMod.structures.BlockFurnaceStructure;
 import com.github.igotyou.FactoryMod.structures.FurnCraftChestStructure;
 import com.github.igotyou.FactoryMod.structures.PipeStructure;
+import com.github.igotyou.FactoryMod.structures.PortalStructure;
 import java.util.List;
 import java.util.Set;
 import org.bukkit.ChatColor;
@@ -93,6 +95,23 @@ public class Create extends StandaloneCommand {
 					return true;
 				}
 				manager.addFactory(fcce.hatch(fccs, (Player) sender));
+				sender.sendMessage(ChatColor.GREEN + "Created " + egg.getName());
+			} else {
+				sender.sendMessage(ChatColor.RED + "You are not looking at the right block for this factory");
+			}
+		}
+		if (egg instanceof PortalEgg) {
+			PortalEgg portal = (PortalEgg) egg;
+			if (view.get(view.size() - 1).getType() == Material.LODESTONE) {
+				PortalStructure fccs = new PortalStructure(view.get(view.size() - 1));
+				if (!fccs.isComplete()) {
+					sender.sendMessage(
+							ChatColor.RED + "The required block structure for this factory doesn't exist here");
+					return true;
+				}
+				Factory factory = portal.hatch(fccs, (Player) sender);
+				manager.addFactory(factory);
+				factory.activate();
 				sender.sendMessage(ChatColor.GREEN + "Created " + egg.getName());
 			} else {
 				sender.sendMessage(ChatColor.RED + "You are not looking at the right block for this factory");
