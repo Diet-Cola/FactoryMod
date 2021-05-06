@@ -2,9 +2,8 @@ package com.github.igotyou.FactoryMod.interactionManager;
 
 import com.github.igotyou.FactoryMod.FactoryMod;
 import com.github.igotyou.FactoryMod.factories.PortalFactory;
-import org.bukkit.Bukkit;
+import com.github.igotyou.FactoryMod.structures.PortalStructure;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
@@ -39,7 +38,6 @@ public class PortalInteractionManager implements IInteractionManager{
 		if (!doesPlayerHavePerms(p, b, "UPGRADE_FACTORY")) {
 			return;
 		}
-		p.sendMessage(ChatColor.GREEN + "You right clicked!");
 		//Open Management GUI
 	}
 
@@ -55,9 +53,10 @@ public class PortalInteractionManager implements IInteractionManager{
 			p.sendMessage(ChatColor.RED + "This portal is not complete!");
 			return;
 		}
-		p.sendMessage(ChatColor.GREEN + "You left clicked!");
-		factory.attemptToActivate(p, false);
-		p.teleport(new Location(Bukkit.getWorld(factory.getTargetWorld()), (factory.getMultiBlockStructure().getCenter().getX() * factory.getTargetLocationMultiplier()), factory.getMultiBlockStructure().getCenter().getY(), (factory.getMultiBlockStructure().getCenter().getZ() * factory.getTargetLocationMultiplier())));
+		factory.attemptToActivate(p, true);
+		p.teleport(factory.getTargetLocation().clone().add(0, 1, 0));
+		PortalStructure structure = (PortalStructure) factory.getMultiBlockStructure();
+		structure.spawnPlatform(factory.getTargetLocation().clone().getBlock());
 		p.sendMessage(ChatColor.GREEN + "Teleporting you!");
 	}
 

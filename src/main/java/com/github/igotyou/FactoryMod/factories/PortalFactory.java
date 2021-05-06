@@ -8,6 +8,7 @@ import com.github.igotyou.FactoryMod.repairManager.IRepairManager;
 import com.github.igotyou.FactoryMod.structures.MultiBlockStructure;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
@@ -16,8 +17,8 @@ public class PortalFactory extends Factory {
 	private double citadelBreakReduction;
 	//For custom nether, if your nether is 4:1 for example, youll want this set to 2
 	private double targetLocationMultiplier;
-
 	private String targetWorld;
+	private Location targetLocation;
 
 	public PortalFactory(IInteractionManager im, IRepairManager rm, IPowerManager pm, MultiBlockStructure mbs,
 						 int updateTime, String name, double citadelBreakReduction, double targetLocationMultiplier,
@@ -26,6 +27,10 @@ public class PortalFactory extends Factory {
 		this.citadelBreakReduction = citadelBreakReduction;
 		this.targetLocationMultiplier = targetLocationMultiplier;
 		this.targetWorld = targetWorld;
+		this.targetLocation = new Location(Bukkit.getWorld(targetWorld), (mbs.getCenter().getX() * targetLocationMultiplier),
+				 mbs.getCenter().getY(),
+				(mbs.getCenter().getZ() * targetLocationMultiplier)).toCenterLocation();
+
 	}
 
 	@Override
@@ -97,5 +102,9 @@ public class PortalFactory extends Factory {
 
 	public String getTargetWorld() {
 		return targetWorld;
+	}
+
+	public Location getTargetLocation() {
+		return targetLocation;
 	}
 }

@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import vg.civcraft.mc.civmodcore.world.WorldUtils;
 
 public class PortalStructure extends MultiBlockStructure{
 
@@ -88,5 +89,13 @@ public class PortalStructure extends MultiBlockStructure{
 		return this.center.getBlock().getType() != Material.LODESTONE &&
 				this.barrel.getBlock().getType() != Material.BARREL &&
 				searchForBlockOnSides(this.center.getBlock(), Material.CRYING_OBSIDIAN).size() == 0;
+	}
+
+	public void spawnPlatform(Block block) {
+		block.setType(Material.LODESTONE);
+		block.getRelative(BlockFace.DOWN).setType(Material.BARREL);
+		for (BlockFace face : WorldUtils.PLANAR_SIDES) {
+			block.getRelative(face).setType(Material.CRYING_OBSIDIAN);
+		}
 	}
 }
