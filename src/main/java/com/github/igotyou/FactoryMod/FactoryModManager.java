@@ -6,6 +6,7 @@ import com.github.igotyou.FactoryMod.eggs.IFactoryEgg;
 import com.github.igotyou.FactoryMod.eggs.PipeEgg;
 import com.github.igotyou.FactoryMod.factories.Factory;
 import com.github.igotyou.FactoryMod.factories.FurnCraftChestFactory;
+import com.github.igotyou.FactoryMod.factories.PortalFactory;
 import com.github.igotyou.FactoryMod.recipes.IRecipe;
 import com.github.igotyou.FactoryMod.recipes.Upgraderecipe;
 import com.github.igotyou.FactoryMod.structures.BlockFurnaceStructure;
@@ -24,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -359,6 +361,11 @@ public class FactoryModManager {
 						}
 						if (egg != null) {
 							Factory f = egg.hatch(portalStructure, p);
+							PortalFactory factory = (PortalFactory) f;
+							if (b.getWorld().equals(Bukkit.getWorld(factory.getTargetWorld()))) {
+								p.sendMessage(ChatColor.RED + "You cannot create a portal in this world!");
+								return;
+							}
 							if (f != null) {
 								((Barrel) (portalStructure.getBarrel().getBlock().getState())).getInventory().clear();
 								addFactory(f);
