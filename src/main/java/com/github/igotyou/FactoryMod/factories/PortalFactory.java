@@ -6,6 +6,7 @@ import com.github.igotyou.FactoryMod.interactionManager.IInteractionManager;
 import com.github.igotyou.FactoryMod.powerManager.IPowerManager;
 import com.github.igotyou.FactoryMod.repairManager.IRepairManager;
 import com.github.igotyou.FactoryMod.structures.MultiBlockStructure;
+import com.github.igotyou.FactoryMod.structures.PortalStructure;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -20,7 +21,7 @@ public class PortalFactory extends Factory {
 	private String targetWorld;
 	private Location targetLocation;
 
-	public PortalFactory(IInteractionManager im, IRepairManager rm, IPowerManager pm, MultiBlockStructure mbs,
+	public PortalFactory(IInteractionManager im, IRepairManager rm, IPowerManager pm, PortalStructure mbs,
 						 int updateTime, String name, double citadelBreakReduction, double targetLocationMultiplier,
 						 String targetWorld) {
 		super(im, rm, pm, mbs, updateTime, name);
@@ -30,7 +31,7 @@ public class PortalFactory extends Factory {
 		this.targetLocation = new Location(Bukkit.getWorld(targetWorld), (mbs.getCenter().getX() * targetLocationMultiplier),
 				 mbs.getCenter().getY(),
 				(mbs.getCenter().getZ() * targetLocationMultiplier)).toCenterLocation();
-
+		mbs.setTargetCenter(targetLocation);
 	}
 
 	@Override

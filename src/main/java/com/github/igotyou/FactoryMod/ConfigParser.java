@@ -349,7 +349,7 @@ public class ConfigParser {
 		String name = config.getString("name");
 		double citadelBreakReduction = config.getDouble("citadelBreakReduction", 1.0);
 		String targetWorld = config.getString("target_world", "world_nether");
-		double targetLocationMultipler = config.getDouble("target_location_multipler", 1.0);
+		double targetLocationMultipler = config.getDouble("target_location_multiplier", 1.0);
 		double returnRate;
 		if (config.contains("return_rate")) {
 			returnRate = config.getDouble("return_rate");

@@ -14,6 +14,7 @@ public class PortalStructure extends MultiBlockStructure{
 	private List<Block> adjacentBlocks;
 	private Location barrel;
 	private boolean complete;
+	private Location targetCenter;
 
 	public PortalStructure(List<Location> blocks) {
 		this(blocks.get(0).getBlock());
@@ -89,6 +90,14 @@ public class PortalStructure extends MultiBlockStructure{
 		return this.center.getBlock().getType() != Material.LODESTONE &&
 				this.barrel.getBlock().getType() != Material.BARREL &&
 				searchForBlockOnSides(this.center.getBlock(), Material.CRYING_OBSIDIAN).size() == 0;
+	}
+
+	public void setTargetCenter(Location location) {
+		this.targetCenter = location;
+	}
+
+	public Location getTargetCenter() {
+		return targetCenter;
 	}
 
 	public void spawnPlatform(Block block) {
