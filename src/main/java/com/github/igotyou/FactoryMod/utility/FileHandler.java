@@ -128,9 +128,7 @@ public class FileHandler {
 					config.set(current + ".type", "PORTAL");
 					config.set(current + ".target_location", portal.getTargetLocation().toString());
 					config.set(current + ".target_world", portal.getTargetWorld());
-					config.set(current + ".health",
-							((PercentageHealthRepairManager) portal
-									.getRepairManager()).getRawHealth());
+					//TODO: Save Health
 				}
 			}
 			config.save(saveFile);
@@ -372,7 +370,7 @@ public class FileHandler {
 					counter++;
 					break;
 				case "PORTAL":
-					PortalEgg portalEgg = (PortalEgg) eggs.get(name);
+					PortalEgg portalEgg = (PortalEgg) eggs.get(name.toLowerCase());
 					if (portalEgg == null) {
 						String replaceName = factoryRenames.get(name);
 						if (replaceName != null) {
