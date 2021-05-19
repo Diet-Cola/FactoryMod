@@ -10,6 +10,7 @@ import com.github.igotyou.FactoryMod.eggs.SorterEgg;
 import com.github.igotyou.FactoryMod.factories.Factory;
 import com.github.igotyou.FactoryMod.factories.FurnCraftChestFactory;
 import com.github.igotyou.FactoryMod.factories.Pipe;
+import com.github.igotyou.FactoryMod.factories.PortalFactory;
 import com.github.igotyou.FactoryMod.factories.Sorter;
 import com.github.igotyou.FactoryMod.recipes.IRecipe;
 import com.github.igotyou.FactoryMod.repairManager.PercentageHealthRepairManager;
@@ -22,6 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+
+import com.github.igotyou.FactoryMod.structures.PortalStructure;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -120,6 +123,14 @@ public class FileHandler {
 								.getItemsForSide(face)
 								.getItemStackRepresentation().toArray());
 					}
+				} else if (f instanceof PortalFactory) {
+					PortalFactory portal = (PortalFactory) f;
+					config.set(current + ".type", "PORTAL");
+					config.set(current + ".target_location", portal.getTargetLocation().toString());
+					config.set(current + ".target_world", portal.getTargetWorld());
+					config.set(current + ".health",
+							((PercentageHealthRepairManager) portal
+									.getRepairManager()).getRawHealth());
 				}
 			}
 			config.save(saveFile);
@@ -377,6 +388,10 @@ public class FileHandler {
 						}
 					}
 					Factory portal = portalEgg.revive(blocks);
+					PortalFactory portalFactory = (PortalFactory) portal;
+					PortalStructure structure = (PortalStructure) portalFactory.getMultiBlockStructure();
+					structure.setTargetCenter(config.getLocation(current + ".target_location"));
+					//TODO: Load Health
 					manager.addFactory(portal);
 					counter++;
 					break;

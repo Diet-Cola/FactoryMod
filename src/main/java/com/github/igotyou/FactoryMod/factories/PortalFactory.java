@@ -43,14 +43,6 @@ public class PortalFactory extends Factory {
 	@Override
 	public void deactivate() {
 		active = false;
-		int task = Bukkit.getScheduler().scheduleSyncRepeatingTask(FactoryMod.getInstance(), () -> {
-			for (Player player : Bukkit.getOnlinePlayers()) {
-				showPortalOffParticles(player);
-			}
-		}, 1L, 1L);
-		if (active) {
-			Bukkit.getScheduler().cancelTask(task);
-		}
 	}
 
 	@Override
@@ -75,14 +67,7 @@ public class PortalFactory extends Factory {
 
 	@Override
 	public void run() {
-		int task = Bukkit.getScheduler().scheduleSyncRepeatingTask(FactoryMod.getInstance(), () -> {
-			for (Player player : Bukkit.getOnlinePlayers()) {
-				showPortalOnParticles(player);
-			}
-		}, 1L, 1L);
-		if (!active) {
-			Bukkit.getScheduler().cancelTask(task);
-		}
+
 	}
 
 	public void showPortalOnParticles(Player player) {

@@ -52,6 +52,7 @@ public class PortalStructure extends MultiBlockStructure{
 		for (Block b : this.adjacentBlocks) {
 			allBlocks.add(b.getLocation());
 		}
+		allBlocks.add(targetCenter);
 		return allBlocks;
 	}
 
@@ -82,6 +83,7 @@ public class PortalStructure extends MultiBlockStructure{
 		allBlocks.add(this.center.getBlock());
 		allBlocks.add(this.barrel.getBlock());
 		allBlocks.addAll(this.adjacentBlocks);
+		allBlocks.add(targetCenter.getBlock());
 		return allBlocks;
 	}
 
