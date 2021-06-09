@@ -128,9 +128,6 @@ public class FileHandler {
 					config.set(current + ".type", "PORTAL");
 					config.set(current + ".target_location", portal.getTargetLocation().toString());
 					config.set(current + ".target_world", portal.getTargetWorld());
-					config.set(current + ".health",
-							((PercentageHealthRepairManager) portal
-									.getRepairManager()).getRawHealth());
 				}
 			}
 			config.save(saveFile);
